@@ -32,7 +32,7 @@ def weekly_data_input():
     booking_data = booking_string.split(",")
 
     validate_data(sales_data,booking_data)
-    
+
 
 def validate_data(value1,value2):
     """
@@ -41,6 +41,8 @@ def validate_data(value1,value2):
     or if there aren't exactly 6 values
     """
     try:
+        [int(value) for value in value1]
+        [int(value) for value in value2]
         if len(value1) != 6 or len(value2) != 6:
             raise ValueError(
                 f"Exactly 6 values are required for both, you provided {len(value1)} and {len(value2)}"
