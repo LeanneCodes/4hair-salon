@@ -35,6 +35,21 @@ def weekly_data_input():
 
 
 def validate_data(value1,value2):
-    print(value1,value2)
+    """
+    Inside the try statement, converts all string values into integers.
+    Raises ValueError if strings cannot be converted into int,
+    or if there aren't exactly 6 values
+    """
+    try:
+        if len(value1) != 6 or len(value2) != 6:
+            raise ValueError(
+                f"Exactly 6 values are required for both, you provided {len(value1)} and {len(value2)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
+
 
 weekly_data_input()
