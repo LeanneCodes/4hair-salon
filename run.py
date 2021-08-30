@@ -19,6 +19,7 @@ def weekly_sales_input():
     This function asks the user for the weekly sales
     per product, in a specific order.
     """
+    print("Welcome to the 4Hair Salon Stock Management Tracking System!\n")
     print("Please enter your weekly sales figures for each product in the order below:")
     print("Shampoo, Conditioner, Styling Gel, Hair Oil, Mousse, Combs, Brushes and Hair Accessories\n")
     print("If you had no sales for that product in the week, please type 0\n")
@@ -27,5 +28,10 @@ def weekly_sales_input():
 
     data_string = input("Enter your numbers here: \n")
     print(f"The data provided is {data_string}")
+    data_correct = input("Before we proceed, is the data inputted correct? Enter Y for yes and N for no")
+    if data_correct == Y:
+        # input the validate data function here
+    else:
+        # tell the user to start again
 
 weekly_sales_input()
