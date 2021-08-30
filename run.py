@@ -25,14 +25,14 @@ def weekly_data_input():
     print("Data should be 6 numbers, separated by commas")
     print("For example: 1000,250,3456,780,90,0\n")
     sales_string = input("Enter your numbers here: \n")
-    print("Now enter your completed bookings by city")
+    print("\nNow enter your completed bookings by city")
     booking_string = input("Enter your numbers here: \n")
 
     sales_data = sales_string.split(",")
     booking_data = booking_string.split(",")
 
     validate_data(sales_data,booking_data)
-
+    
 
 def validate_data(value1,value2):
     """
@@ -50,6 +50,6 @@ def validate_data(value1,value2):
         return False
 
     return True
-
+    
 
 weekly_data_input()
