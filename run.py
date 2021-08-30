@@ -14,24 +14,27 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('4hair-salon')
 
 
-def weekly_sales_input():
+def weekly_data_input():
     """
-    This function asks the user for the weekly sales
-    per product, in a specific order.
+    This function asks the user for the weekly sales and bookings,
+    by city, in a specific order.
     """
-    print("Welcome to the 4Hair Salon Stock Management Tracking System!\n")
-    print("Please enter your weekly sales figures for each product in the order below:")
-    print("Shampoo, Conditioner, Styling Gel, Hair Oil, Mousse, Combs, Brushes and Hair Accessories\n")
-    print("If you had no sales for that product in the week, please type 0\n")
-    print("Data should be 8 numbers, separated by commas")
-    print("For example: 8,11,3,16,0,29,7,4\n")
+    print("Welcome to the 4Hair Salon Regional Sales Tracking System!\n")
+    print("Please enter your weekly sales figures for each city in the order below:")
+    print("London, Bristol, Manchester, Birmingham, Liverpool and Nottingham\n")
+    print("Data should be 6 numbers, separated by commas")
+    print("For example: 1000,250,3456,780,90,0\n")
+    sales_string = input("Enter your numbers here: \n")
+    print("Now enter your completed bookings by city")
+    booking_string = input("Enter your numbers here: \n")
 
-    data_string = input("Enter your numbers here: \n")
-    print(f"The data provided is {data_string}")
-    data_correct = input("Before we proceed, is the data inputted correct? Enter Y for yes and N for no")
-    if data_correct == Y:
-        # input the validate data function here
-    else:
-        # tell the user to start again
+    sales_data = sales_string.split(",")
+    booking_data = booking_string.split(",")
 
-weekly_sales_input()
+    validate_data(sales_data,booking_data)
+
+
+def validate_data(value1,value2):
+    print(value1,value2)
+
+weekly_data_input()
