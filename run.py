@@ -98,7 +98,7 @@ def calculate_aov(sales_row):
     Compare the sales and completed bookings for each city and
     calculate the average order value for each booking.
     """
-    print("Calculating the average order value for each booking...")
+    print("Calculating the average order value for each booking...\n")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
     booking_row = completed_bookings[-1]
     
@@ -108,6 +108,16 @@ def calculate_aov(sales_row):
         aov_data.append(aov)
     
     return aov_data
+
+
+def update_aov_worksheet(aov):
+    """
+    Updates the AOV worksheet and appends a new row of data.
+    """
+    aov_results = SHEET.worksheet("AOV").append_row(aov)
+    print("Your AOV per booking for each city has been updated successfully!")
+
+    return aov_results
 
 
 def main():
@@ -120,7 +130,7 @@ def main():
     booking_data = data[1]
     update_booking_worksheet(booking_data)
     new_aov_data = calculate_aov(sales_data)
-    print(new_aov_data)
+    update_aov_worksheet(new_aov_data)
 
 
 main()
