@@ -73,24 +73,15 @@ def validate_data(value1, value2):
     return True
 
 
-def update_sales_worksheet(data):
+def update_worksheet(data, worksheet):
     """
-    Update the sales worksheet as a new row of data.
+    Receives a list of integers to be inserted into a worksheet
+    Update the relevant worksheet with the data provided.
     """
-    print("Updating sales worksheet...\n")
-    sales_worksheet = SHEET.worksheet("Sales")
-    sales_worksheet.append_row(data)
-    print("Your sales worksheet has been updated successfully!\n")
-
-
-def update_booking_worksheet(data):
-    """
-    Update the number of completed bookings as a new row of data.
-    """
-    print("Updating completed bookings worksheet...\n")
-    booking_worksheet = SHEET.worksheet("CompletedBookings")
-    booking_worksheet.append_row(data)
-    print("Your completed booking worksheet has been updated successfully!\n")
+    print(f"Updating {worksheet} worksheet...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully\n")
 
 
 def calculate_aov(sales_row):
@@ -126,9 +117,9 @@ def main():
     """
     data = weekly_data_input()
     sales_data = data[0]
-    update_sales_worksheet(sales_data)
+    update_worksheet(sales_data, "Sales")
     booking_data = data[1]
-    update_booking_worksheet(booking_data)
+    update_worksheet(booking_data, "CompletedBookings")
     new_aov_data = calculate_aov(sales_data)
     update_aov_worksheet(new_aov_data)
 
