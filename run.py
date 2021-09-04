@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-import pprint
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -93,6 +93,16 @@ def update_booking_worksheet(data):
     print("Your completed booking worksheet has been updated successfully!\n")
 
 
+def calculate_aov(sales_row):
+    """
+    Compare the sales and completed bookings for each city and
+    calculate the average order value for each booking.
+    """
+    print("Calculating the average order value for each booking...")
+    completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
+    booking_row = completed_bookings[-1]
+    print(booking_row)
+
 def main():
     """
     Here lies all the program functions
@@ -102,6 +112,6 @@ def main():
     update_sales_worksheet(sales_data)
     booking_data = [int(num) for num in data]
     update_booking_worksheet(booking_data)
-
+    calculate_aov(sales_row)
 
 main()
