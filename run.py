@@ -19,19 +19,33 @@ def weekly_data_input():
     This function asks the user for the weekly sales and bookings,
     by city, in a specific order.
     """
-    print("Welcome to the 4Hair Salon Regional Sales Tracking System!\n")
-    print("Please enter your weekly sales figures for each city in the order below:")
-    print("London, Bristol, Manchester, Birmingham, Liverpool and Nottingham\n")
-    print("Data should be 6 numbers, separated by commas")
-    print("For example: 1000,250,3456,780,90,0\n")
-    sales_string = input("Enter your numbers here: \n")
-    print("\nNow enter your completed bookings by city")
-    booking_string = input("Enter your numbers here: \n")
+    while True:
+        print("Welcome to the 4Hair Salon Regional Sales Tracking System!\n")
+        print("Please enter your weekly sales figures for each city in the order below:")
+        print("London, Bristol, Manchester, Birmingham, Liverpool and Nottingham\n")
+        print("Data should be 6 numbers, separated by commas")
+        print("For example: 1000,250,3456,780,90,0\n")
+        sales_string = input("Enter your numbers here: \n")
+        print("\nNow enter your completed bookings by city")
+        booking_string = input("Enter your numbers here: \n")
 
-    sales_data = sales_string.split(",")
-    booking_data = booking_string.split(",")
+        sales_data = sales_string.split(",")
+        booking_data = booking_string.split(",")
 
-    validate_data(sales_data,booking_data)
+        if validate_data(sales_data,booking_data):
+            print("Data is valid!\n")
+            print("Please confirm the data you entered is correct?")
+            while True:
+                user_confirm = int(input("(1)Yes or (2)No. \nType the number of your response: "))
+                if user_confirm == 1:
+                    print("Please proceed")
+                    break
+                elif user_confirm == 2:
+                    print("Start again")
+                    break
+                else:
+                    print("Invalid choice. Options are 1 or 2 only.")
+            break
 
 
 def validate_data(value1,value2):
