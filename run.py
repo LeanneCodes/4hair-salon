@@ -47,6 +47,8 @@ def weekly_data_input():
                     print("Invalid choice. Options are 1 or 2 only.")
             break
 
+    return sales_data, booking_data
+
 
 def validate_data(value1,value2):
     """
@@ -68,4 +70,4 @@ def validate_data(value1,value2):
     return True
     
 
-weekly_data_input()
+data = weekly_data_input()
