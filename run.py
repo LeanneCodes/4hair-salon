@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
+import math
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -101,7 +102,12 @@ def calculate_aov(sales_row):
     print("Calculating the average order value for each booking...")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
     booking_row = completed_bookings[-1]
-    print(booking_row)
+    
+    aov_data = []
+    for sales, bookings in zip(sales_row, booking_row):
+        aov = sales / int(bookings)
+        aov_data.append(aov)
+    print(aov_data)
 
 def main():
     """
@@ -112,6 +118,7 @@ def main():
     update_sales_worksheet(sales_data)
     booking_data = [int(num) for num in data]
     update_booking_worksheet(booking_data)
-    calculate_aov(sales_row)
+    calculate_aov(sales_data)
+
 
 main()
