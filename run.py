@@ -125,6 +125,22 @@ def get_last_4_entries_aov():
     return columns
 
 
+def aov_reccos(data):
+    """
+    Calculating the averages for last 4 average order values for
+    each city and then supply some recommendations off the back of it.
+    """
+    print("Calculating the last 4 AOV entries...\n")
+    
+    for column in data:
+        float_column = [float(num) for num in column]
+        average = sum(float_column) / len(float_column)
+        aov_last_4 = average
+        print(aov_last_4)
+
+    return aov_last_4
+
+
 def main():
     """
     Here lies all the program functions
@@ -137,6 +153,7 @@ def main():
     new_aov_data = calculate_aov(sales_data)
     update_aov_worksheet(new_aov_data)
     aov_columns = get_last_4_entries_aov()
+    aov_reccos(aov_columns)
 
 
 main()
