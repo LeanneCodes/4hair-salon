@@ -17,7 +17,9 @@ SHEET = GSPREAD_CLIENT.open('4hair-salon')
 def weekly_data_input():
     """
     This function asks the user for the weekly sales and bookings,
-    by city, in a specific order.
+    by city, in a specific order. Run a while loop until the data
+    entered is valid and asks the user to confirm data is correct
+    before proceeding with the rest of the program.
     """
     while True:
         print("Welcome to the 4Hair Salon Regional Sales Tracking System!\n")
@@ -32,13 +34,13 @@ def weekly_data_input():
         sales_data = sales_string.split(",")
         booking_data = booking_string.split(",")
 
-        if validate_data(sales_data,booking_data):
+        if validate_data(sales_data, booking_data):
             print("Data is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
                 user_confirm = int(input("(1)Yes or (2)No. \nType the number of your response: "))
                 if user_confirm == 1:
-                    print("Please proceed")
+                    print("\nThe system will proceed...\n")
                     break
                 elif user_confirm == 2:
                     print("Start again")
@@ -47,10 +49,11 @@ def weekly_data_input():
                     print("Invalid choice. Options are 1 or 2 only.")
             break
 
-    return sales_data, booking_data
+    return sales_data
+    return booking_data
 
 
-def validate_data(value1,value2):
+def validate_data(value1, value2):
     """
     Inside the try statement, converts all string values into integers.
     Raises ValueError if strings cannot be converted into int,
@@ -68,6 +71,18 @@ def validate_data(value1,value2):
         return False
 
     return True
-    
+
+
+def update_sales_worksheet(data):
+    """
+    Update the sales worksheet as a new row of data.
+    """
+    print("Updating sales worksheet...\n")
+    sales_worksheet = SHEET.worksheet("Sales")
+    sales_worksheet.append_row(data)
+    print("Your sales worksheet has been updated successfully!\n")
+
 
 data = weekly_data_input()
+sales_data = [int(num) for num in data]
+update_sales_worksheet(sales_data)
