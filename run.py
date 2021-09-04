@@ -111,6 +111,20 @@ def update_aov_worksheet(aov):
     return aov_results
 
 
+def get_last_4_entries_aov():
+    """
+    This function looks at the last 4 average order values per city.
+    """
+    aov = SHEET.worksheet("AOV")
+
+    columns = []
+    for ind in range(1, 7):
+        column = aov.col_values(ind)
+        columns.append(column[-4:])
+
+    return columns
+
+
 def main():
     """
     Here lies all the program functions
@@ -122,6 +136,7 @@ def main():
     update_worksheet(booking_data, "CompletedBookings")
     new_aov_data = calculate_aov(sales_data)
     update_aov_worksheet(new_aov_data)
+    aov_columns = get_last_4_entries_aov()
 
 
 main()
