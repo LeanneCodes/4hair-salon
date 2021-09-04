@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from pprint import pprint
 import math
+from tabulate import tabulate
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -106,7 +107,7 @@ def update_aov_worksheet(aov):
     Updates the AOV worksheet and appends a new row of data.
     """
     aov_results = SHEET.worksheet("AOV").append_row(aov)
-    print("Your AOV per booking for each city has been updated successfully!")
+    print("Your AOV per booking for each city has been updated successfully!\n")
 
     return aov_results
 
@@ -130,13 +131,19 @@ def aov_reccos(data):
     Calculating the averages for last 4 average order values for
     each city and then supply some recommendations off the back of it.
     """
-    print("Calculating the last 4 AOV entries...\n")
+    print("Recommendations for each city is below...\n")
     
     for column in data:
         float_column = [float(num) for num in column]
         average = sum(float_column) / len(float_column)
         aov_last_4 = average
-        print(aov_last_4)
+        
+        if aov_last_4 <= 40:
+            print("For city_name, you need to increase your average order value. The 4Hair Salon target is 40.\nTry offering more add-on services, such as, a balayage treatment or a head massage.\n")
+        elif aov_last_4 == 40:
+            print("For city_name, your sales this week are meeting target.\n")
+        else:
+            print("For city_name, this location is doing an amazing job. Keep it up!\n")
 
     return aov_last_4
 
