@@ -39,7 +39,7 @@ def weekly_data_input():
             print("Data is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
-                user_confirm = int(input("(1)Yes or (2)No. \nType the number of your response: "))
+                user_confirm = int(input("(1)Yes or (2)No \nType the number of your response: "))
                 if user_confirm == 1:
                     print("\nThe system will proceed...\n")
                     break
@@ -107,7 +107,8 @@ def calculate_aov(sales_row):
     for sales, bookings in zip(sales_row, booking_row):
         aov = sales / int(bookings)
         aov_data.append(aov)
-    print(aov_data)
+    
+    return aov_data
 
 def main():
     """
@@ -118,7 +119,8 @@ def main():
     update_sales_worksheet(sales_data)
     booking_data = [int(num) for num in data]
     update_booking_worksheet(booking_data)
-    calculate_aov(sales_data)
+    new_aov_data = calculate_aov(sales_data)
+    print(new_aov_data)
 
 
 main()
