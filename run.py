@@ -50,8 +50,7 @@ def weekly_data_input():
                     print("Invalid choice. Options are 1 or 2 only.")
             break
 
-    return sales_data
-    return booking_data
+    return sales_data, booking_data
 
 
 def validate_data(value1, value2):
@@ -105,19 +104,20 @@ def calculate_aov(sales_row):
     
     aov_data = []
     for sales, bookings in zip(sales_row, booking_row):
-        aov = sales / int(bookings)
+        aov = int(sales) / int(bookings)
         aov_data.append(aov)
     
     return aov_data
+
 
 def main():
     """
     Here lies all the program functions
     """
     data = weekly_data_input()
-    sales_data = [int(num) for num in data]
+    sales_data = data[0]
     update_sales_worksheet(sales_data)
-    booking_data = [int(num) for num in data]
+    booking_data = data[1]
     update_booking_worksheet(booking_data)
     new_aov_data = calculate_aov(sales_data)
     print(new_aov_data)
