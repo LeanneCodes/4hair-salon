@@ -83,6 +83,25 @@ def update_sales_worksheet(data):
     print("Your sales worksheet has been updated successfully!\n")
 
 
-data = weekly_data_input()
-sales_data = [int(num) for num in data]
-update_sales_worksheet(sales_data)
+def update_booking_worksheet(data):
+    """
+    Update the number of completed bookings as a new row of data.
+    """
+    print("Updating completed bookings worksheet...\n")
+    booking_worksheet = SHEET.worksheet("CompletedBookings")
+    booking_worksheet.append_row(data)
+    print("Your completed booking worksheet has been updated successfully!\n")
+
+
+def main():
+    """
+    Here lies all the program functions
+    """
+    data = weekly_data_input()
+    sales_data = [int(num) for num in data]
+    update_sales_worksheet(sales_data)
+    booking_data = [int(num) for num in data]
+    update_booking_worksheet(booking_data)
+
+
+main()
