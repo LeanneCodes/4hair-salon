@@ -155,10 +155,12 @@ def aov_reccos(data):
     city_name = ['London', 'Bristol', 'Manchester', 'Birmingham', 'Liverpool', 'Nottingham']
     aov_target = [70, 30, 55, 40, 35, 50]
 
-    for i, j in zip(city_name, aov_target):
-        print(f"{city_name[i]}'s Regional AOV Target is {aov_target[j]}. Your AOV is currently at {aov_last_4}.")
-        if aov_last_4 <= 40:
-            print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as, a balayage treatment or a head massage.\n")
+    # for i, j in zip(city_name, aov_target):
+    for i in range(len(city_name)):
+        for j in range(len(aov_target)):
+            print(f"\n{city_name[i]}'s Regional AOV Target is {aov_target[j]}. Your AOV is currently at {aov_last_4}.")
+            if aov_last_4 <= 40:
+                print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as, a balayage treatment or a head massage.")
     
     return aov_last_4
 
