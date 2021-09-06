@@ -138,22 +138,18 @@ def aov_reccos(data):
         average = sum(float_column) / len(float_column)
         aov_last_4 = round(average)
         aov_value.append(aov_last_4)
-    while i < len(aov_value):
-            i = i + 1
-    print(i)
 
     aov_dict = {
-     1: ["London", 70],
-     2: ["Bristol", 30],
-     3: ["Manchester", 55],
-     4: ["Birmingham", 40],
-     5: ["Liverpool", 35],
-     6: ["Nottingham", 50]
+     0: ["London", 70],
+     1: ["Bristol", 30],
+     2: ["Manchester", 55],
+     3: ["Birmingham", 40],
+     4: ["Liverpool", 35],
+     5: ["Nottingham", 50]
     }
     
     for key, value in aov_dict.items():
-        print(f"\n{value[0]}'s Regional AOV Target is {value[1]} and your AOV is currently at {aov_value}.")
-
+        print(f"\n{value[0]}'s Regional AOV Target is {value[1]} and your AOV is currently at {aov_value[key]}.")
         #    if aov_value < 40:
         #        print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair")
 
