@@ -36,7 +36,7 @@ def weekly_data_input():
         booking_data = booking_string.split(",")
 
         if validate_data(sales_data, booking_data):
-            print("Data is valid!\n")
+            print("\nData is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
                 user_confirm = int(input("(1)Yes or (2)No \nType the number of your response: "))
@@ -93,12 +93,12 @@ def calculate_aov(sales_row):
     print("Calculating the average order value for each booking...\n")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
     booking_row = completed_bookings[-1]
-    
+
     aov_data = []
     for sales, bookings in zip(sales_row, booking_row):
         aov = int(sales) / int(bookings)
         aov_data.append(aov)
-    
+
     return aov_data
 
 
@@ -122,7 +122,6 @@ def get_last_4_entries_aov():
     for ind in range(1, 7):
         column = aov.col_values(ind)
         columns.append(column[-4:])
-
     return columns
 
 
@@ -132,11 +131,16 @@ def aov_reccos(data):
     each city and then supply some recommendations off the back of it.
     """
     print("Recommendations for each city is below...\n")
-    
+
+    aov_value = []
     for column in data:
         float_column = [float(num) for num in column]
         average = sum(float_column) / len(float_column)
-        aov_last_4 = average
+        aov_last_4 = round(average)
+        aov_value.append(aov_last_4)
+    while i < len(aov_value):
+            i = i + 1
+    print(i)
 
     aov_dict = {
      1: ["London", 70],
@@ -146,23 +150,14 @@ def aov_reccos(data):
      5: ["Liverpool", 35],
      6: ["Nottingham", 50]
     }
-
-    print("{:<10} {:<10}".format('CITY', 'AOV TARGET'))
+    
     for key, value in aov_dict.items():
-        city, aov_dict = value
-        print("{:<10} {:<10}".format(city, aov_dict))
-    
-    city_name = ['London', 'Bristol', 'Manchester', 'Birmingham', 'Liverpool', 'Nottingham']
-    aov_target = [70, 30, 55, 40, 35, 50]
+        print(f"\n{value[0]}'s Regional AOV Target is {value[1]} and your AOV is currently at {aov_value}.")
 
-    # for i, j in zip(city_name, aov_target):
-    for i in range(len(city_name)):
-        for j in range(len(aov_target)):
-            print(f"\n{city_name[i]}'s Regional AOV Target is {aov_target[j]}. Your AOV is currently at {aov_last_4}.")
-            if aov_last_4 <= 40:
-                print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as, a balayage treatment or a head massage.")
-    
-    return aov_last_4
+        #    if aov_value < 40:
+        #        print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair")
+
+    return aov_value
 
 
 def main():
