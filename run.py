@@ -130,7 +130,7 @@ def aov_reccos(data):
     Calculating the averages for last 4 average order values for
     each city and then supply some recommendations off the back of it.
     """
-    print("Recommendations for each city is below...\n")
+    print("Recommendations to improve average order value are below...\n")
 
     aov_value = []
     for column in data:
@@ -147,7 +147,7 @@ def aov_reccos(data):
      4: ["Liverpool", 35],
      5: ["Nottingham", 50]
     }
-    
+
     for key, value in aov_dict.items():
         print(f"{value[0]}'s Regional AOV Target is {value[1]} and your latest AOV is currently at {aov_value[key]}.")
         if aov_value[key] < value[1]:
@@ -156,6 +156,7 @@ def aov_reccos(data):
             print("You're smashing target goals. Keep up the great work!\n")
         else:
             print("You're on target. However please aim to increase the store's average order value to prevent falling behind.\n")
+
     return aov_value
 
 
