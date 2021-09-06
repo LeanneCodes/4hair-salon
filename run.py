@@ -149,10 +149,13 @@ def aov_reccos(data):
     }
     
     for key, value in aov_dict.items():
-        print(f"\n{value[0]}'s Regional AOV Target is {value[1]} and your AOV is currently at {aov_value[key]}.")
-        #    if aov_value < 40:
-        #        print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair")
-
+        print(f"{value[0]}'s Regional AOV Target is {value[1]} and your latest AOV is currently at {aov_value[key]}.")
+        if aov_value[key] < value[1]:
+            print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n")
+        elif aov_value[key] > value[1]:
+            print("You're smashing target goals. Keep up the great work!\n")
+        else:
+            print("You're on target. However please aim to increase the store's average order value to prevent falling behind.\n")
     return aov_value
 
 
