@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 import math
 
 SCOPE = [
@@ -39,7 +38,7 @@ def weekly_data_input():
             print("\nData is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
-                user_confirm = int(input("(1)Yes or (2)No \nType the number of your response: "))
+                user_confirm = int(input("(1)Yes or (2)No \nType the number of your response: \n"))
                 if user_confirm == 1:
                     print("\nThe system will proceed...\n")
                     break
@@ -48,7 +47,7 @@ def weekly_data_input():
                     main()
                     break
                 else:
-                    print("Invalid choice. Options are 1 or 2 only.")
+                    print("\nInvalid choice. Options are 1 or 2 only.")
             break
 
     return sales_data, booking_data
@@ -68,7 +67,7 @@ def validate_data(value1, value2):
                 f"Exactly 6 values are required for both, you provided {len(value1)} and {len(value2)}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+        print(f"\nInvalid data: {e}, please try again.\n")
         return False
 
     return True
@@ -127,10 +126,11 @@ def get_last_4_entries_aov():
 
 def aov_reccos(data):
     """
-    Calculating the averages for last 4 average order values for
-    each city and then supply some recommendations off the back of it.
+    Calculates the averages for last 4 average order values for
+    each city. Depending on the performance, recommendations
+    are suggested to help improve performance.
     """
-    print("Recommendations to improve average order value are below...\n")
+    print("Recommendations to improve average order value per city are below, if any...\n")
 
     aov_value = []
     for column in data:
