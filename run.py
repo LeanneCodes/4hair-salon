@@ -15,9 +15,9 @@ SHEET = GSPREAD_CLIENT.open('4hair-salon')
 
 def weekly_data_input():
     """
-    This function asks the user for the weekly sales and bookings,
-    by city, in a specific order. Run a while loop until the data
-    entered is valid and asks the user to confirm data is correct
+    This function asks the user for the end of week sales and bookings,
+    by city, in a specific order. It runs a while loop until the data
+    entered is valid and asks the user to confirm the data is correct
     before proceeding with the rest of the program.
     """
     while True:
@@ -54,9 +54,9 @@ def weekly_data_input():
 
 def validate_data(value1, value2):
     """
-    Inside the try statement, converts all string values into integers.
-    Raises ValueError if strings cannot be converted into int,
-    or if there aren't exactly 6 values
+    Inside the try statement, convert all string values into integers.
+    Raises ValueError if strings cannot be converted into an int,
+    or if there aren't exactly 6 values.
     """
     try:
         [int(value) for value in value1]
@@ -74,8 +74,8 @@ def validate_data(value1, value2):
 
 def update_worksheet(data, worksheet):
     """
-    Receives a list of integers to be inserted into a worksheet
-    Update the relevant worksheet with the data provided.
+    Receives a list of integers to be inserted into a worksheet.
+    Updates the relevant worksheet with the data provided.
     """
     print(f"Updating {worksheet} worksheet...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
@@ -85,8 +85,8 @@ def update_worksheet(data, worksheet):
 
 def calculate_aov(sales_row):
     """
-    Compare the sales and completed bookings for each city and
-    calculate the average order value for each booking.
+    Compares the sales and completed bookings for each city and
+    calculates the average order value for each booking.
     """
     print("Calculating the average order value for each booking...\n")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
@@ -149,12 +149,20 @@ def aov_reccos(data):
 
     for key, value in aov_dict.items():
         print(f"{value[0]}'s Regional AOV Target is {value[1]} and your latest AOV is currently at {aov_value[key]}.")
-        if aov_value[key] < value[1]:
-            print("For this location, you need to increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n")
+        if aov_value[key] < (0.1 * value[1]):
+            print("This location is severely underperforming. You need to drastically increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n7. 4Hair's Luxury Hair Care Kits\n")
+        elif aov_value[key] < (0.3 * value[1]):
+            print("Your average order value for this location is dangerously low and needs improvement.\nTry upselling your clients with services that are in the £25-£40 range.\n")
+        elif aov_value[key] < (0.5 * value[1]):
+            print("This location is more than 50% under target.\nEncourage clients to trial the latest hairstyle trends that require additional work and billable hours in the chair.\n")
+        elif aov_value[key] < (0.8 * value[1]):
+            print("This city's store is currently falling behind.\nAim to sell 4Hair's luxury at home hair care kits to each client to exceed targets.\n ")
+        elif aov_value[key] < (0.95 * value[1]):
+            print("So close to target, but not quite there yet.\nIf clients are not currently querying about the £40+ hair treatments/styles, please encourage them to take on these services.\n")
         elif aov_value[key] > value[1]:
-            print("You're smashing target goals. Keep up the great work!\n")
+            print("This city is smashing target goals. Keep it up!\n")
         else:
-            print("You're on target. However please aim to increase the store's average order value to prevent falling behind.\n")
+            print("This store is meeting target. However please aim to increase the store's average order value to prevent falling behind.\n")
 
     return aov_value
 
