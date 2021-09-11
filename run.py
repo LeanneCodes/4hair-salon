@@ -37,16 +37,16 @@ def weekly_data_input():
             print("\nData is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
-                user_confirm = int(input("(1)Yes or (2)No \nType the number of your response: \n"))
-                if user_confirm == 1:
+                user_confirm = (input("(1)Yes or (2)No \nType the number of your response: \n"))
+                if user_confirm == "1":
                     print("\nThe system will proceed...\n")
                     return sales_data, booking_data
-                elif user_confirm == 2:
+                elif user_confirm == "2":
                     print("\nSystem starting again...\n")
                     main()
                     break
                 else:
-                    print("\nInvalid choice. Options are 1 or 2 only.\nLetters, spaces and returns will force quit the system.\n")
+                    print("\nInvalid choice. Options are 1 or 2 only.\n")
             break
 
 
@@ -86,7 +86,7 @@ def calculate_abv(sales_row):
     Compares the sales and completed bookings for each city and
     calculates the average booking value for each booking.
     """
-    print("Calculating the average booking value for each booking...\n")
+    print("Calculating the average booking value for each city...\n")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
     booking_row = completed_bookings[-1]
 
