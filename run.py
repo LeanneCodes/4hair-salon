@@ -40,7 +40,7 @@ def weekly_data_input():
                 user_confirm = int(input("(1)Yes or (2)No \nType the number of your response: \n"))
                 if user_confirm == 1:
                     print("\nThe system will proceed...\n")
-                    break
+                    return sales_data, booking_data
                 elif user_confirm == 2:
                     print("\nSystem starting again...\n")
                     main()
@@ -48,8 +48,6 @@ def weekly_data_input():
                 else:
                     print("\nInvalid choice. Options are 1 or 2 only.")
             break
-
-    return sales_data, booking_data
 
 
 def validate_data(value1, value2):
@@ -160,7 +158,7 @@ def aov_reccos(data):
         elif aov_value[key] < (0.95 * value[1]):
             print("So close to target, but not quite there yet.\nIf clients are not currently querying about the £40+ hair treatments/styles, please encourage them to take on these services.\n")
         elif aov_value[key] > value[1]:
-            print("This city is smashing target goals. Keep it up!\n")
+            print("Congratulations! This city is smashing target goals. Keep it up!\n")
         else:
             print("This store is meeting target. However please aim to increase the store's average order value to prevent falling behind.\n")
 
@@ -172,14 +170,16 @@ def main():
     Here lies all the program functions
     """
     data = weekly_data_input()
-    sales_data = data[0]
-    update_worksheet(sales_data, "Sales")
-    booking_data = data[1]
-    update_worksheet(booking_data, "CompletedBookings")
-    new_aov_data = calculate_aov(sales_data)
-    update_aov_worksheet(new_aov_data)
-    aov_columns = get_last_4_entries_aov()
-    aov_reccos(aov_columns)
+    if data:
+        print("Variable DATA on line 173", data)  #ADDED BY JO
+        sales_data = data[0]
+        update_worksheet(sales_data, "Sales")
+        booking_data = data[1]
+        update_worksheet(booking_data, "CompletedBookings")
+        new_aov_data = calculate_aov(sales_data)
+        update_aov_worksheet(new_aov_data)
+        aov_columns = get_last_4_entries_aov()
+        aov_reccos(aov_columns)
 
 
 main()
