@@ -81,62 +81,62 @@ def update_worksheet(data, worksheet):
     print(f"{worksheet} worksheet updated successfully\n")
 
 
-def calculate_aov(sales_row):
+def calculate_abv(sales_row):
     """
     Compares the sales and completed bookings for each city and
-    calculates the average order value for each booking.
+    calculates the average booking value for each booking.
     """
-    print("Calculating the average order value for each booking...\n")
+    print("Calculating the average booking value for each booking...\n")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
     booking_row = completed_bookings[-1]
 
-    aov_data = []
+    abv_data = []
     for sales, bookings in zip(sales_row, booking_row):
-        aov = int(sales) / int(bookings)
-        aov_data.append(aov)
+        abv = int(sales) / int(bookings)
+        abv_data.append(abv)
 
-    return aov_data
+    return abv_data
 
 
-def update_aov_worksheet(aov):
+def update_abv_worksheet(abv):
     """
-    Updates the AOV worksheet and appends a new row of data.
+    Updates the abv worksheet and appends a new row of data.
     """
-    aov_results = SHEET.worksheet("AOV").append_row(aov)
-    print("Your AOV per booking for each city has been updated successfully!\n")
+    abv_results = SHEET.worksheet("ABV").append_row(abv)
+    print("Your average booking value for each city has been updated successfully!\n")
 
-    return aov_results
+    return abv_results
 
 
-def get_last_4_entries_aov():
+def get_last_4_entries_abv():
     """
-    This function looks at the last 4 average order values per city.
+    This function looks at the last 4 average booking values per city.
     """
-    aov = SHEET.worksheet("AOV")
+    abv = SHEET.worksheet("ABV")
 
     columns = []
     for ind in range(1, 7):
-        column = aov.col_values(ind)
+        column = abv.col_values(ind)
         columns.append(column[-4:])
     return columns
 
 
-def aov_reccos(data):
+def abv_reccos(data):
     """
-    Calculates the averages for last 4 average order values for
+    Calculates the averages for last 4 average booking values for
     each city. Depending on the performance, recommendations
     are suggested to help improve performance.
     """
-    print("Recommendations to improve average order value per city are below, if any...\n")
+    print("Recommendations to improve average booking value per city are below, if any...\n")
 
-    aov_value = []
+    abv_value = []
     for column in data:
         float_column = [float(num) for num in column]
         average = sum(float_column) / len(float_column)
-        aov_last_4 = round(average)
-        aov_value.append(aov_last_4)
+        abv_last_4 = round(average)
+        abv_value.append(abv_last_4)
 
-    aov_dict = {
+    abv_dict = {
      0: ["London", 70],
      1: ["Bristol", 30],
      2: ["Manchester", 55],
@@ -145,24 +145,26 @@ def aov_reccos(data):
      5: ["Nottingham", 50]
     }
 
-    for key, value in aov_dict.items():
-        print(f"{value[0]}'s Regional AOV Target is {value[1]} and your latest AOV is currently at {aov_value[key]}.")
-        if aov_value[key] < (0.1 * value[1]):
-            print("This location is severely underperforming. You need to drastically increase your average order value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n7. 4Hair's Luxury Hair Care Kits\n")
-        elif aov_value[key] < (0.3 * value[1]):
-            print("Your average order value for this location is dangerously low and needs improvement.\nTry upselling your clients with services that are in the £25-£40 range.\n")
-        elif aov_value[key] < (0.5 * value[1]):
+    for key, value in abv_dict.items():
+        print(f"{value[0]}'s Regional abv Target is {value[1]} and your latest abv is currently at {abv_value[key]}.")
+        if abv_value[key] < (0.1 * value[1]):
+            print("This location is severely underperforming. You need to drastically increase your average booking value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n7. 4Hair's Luxury Hair Care Kits\n")
+        elif abv_value[key] < (0.3 * value[1]):
+            print("Your average booking value for this location is dangerously low and needs improvement.\nTry upselling your clients with services that are in the £25-£40 range.\n")
+        elif abv_value[key] < (0.5 * value[1]):
             print("This location is more than 50% under target.\nEncourage clients to trial the latest hairstyle trends that require additional work and billable hours in the chair.\n")
-        elif aov_value[key] < (0.8 * value[1]):
+        elif abv_value[key] < (0.7 * value[1]):
             print("This city's store is currently falling behind.\nAim to sell 4Hair's luxury at home hair care kits to each client to exceed targets.\n ")
-        elif aov_value[key] < (0.95 * value[1]):
-            print("So close to target, but not quite there yet.\nIf clients are not currently querying about the £40+ hair treatments/styles, please encourage them to take on these services.\n")
-        elif aov_value[key] > value[1]:
+        elif abv_value[key] < (0.95 * value[1]):
+            print("So close to target, but not quite there yet.\nIf the majority of this store's clientele are not querying about the £40+ hair treatments/styles, please encourage them to take on these services.\n")
+        elif abv_value[key] <= (0.99 * value[1]):
+            print("This store is doing really well.\nIncentivise employees with 45% off £50+ treatments for themselves or family, only if they exceed target next week.\n")
+        elif abv_value[key] > value[1]:
             print("Congratulations! This city is smashing target goals. Keep it up!\n")
         else:
-            print("This store is meeting target. However please aim to increase the store's average order value to prevent falling behind.\n")
+            print("This store is meeting target. However, please aim to increase the store's average booking value to prevent falling behind.\n")
 
-    return aov_value
+    return abv_value
 
 
 def main():
@@ -171,15 +173,14 @@ def main():
     """
     data = weekly_data_input()
     if data:
-        print("Variable DATA on line 173", data)  #ADDED BY JO
         sales_data = data[0]
         update_worksheet(sales_data, "Sales")
         booking_data = data[1]
         update_worksheet(booking_data, "CompletedBookings")
-        new_aov_data = calculate_aov(sales_data)
-        update_aov_worksheet(new_aov_data)
-        aov_columns = get_last_4_entries_aov()
-        aov_reccos(aov_columns)
+        new_abv_data = calculate_abv(sales_data)
+        update_abv_worksheet(new_abv_data)
+        abv_columns = get_last_4_entries_abv()
+        abv_reccos(abv_columns)
 
 
 main()
