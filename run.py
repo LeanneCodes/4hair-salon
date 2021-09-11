@@ -46,7 +46,7 @@ def weekly_data_input():
                     main()
                     break
                 else:
-                    print("\nInvalid choice. Options are 1 or 2 only.")
+                    print("\nInvalid choice. Options are 1 or 2 only.\nLetters, spaces and returns will force quit the system.\n")
             break
 
 
