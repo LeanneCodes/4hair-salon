@@ -148,21 +148,21 @@ def abv_reccos(data):
     for key, value in abv_dict.items():
         print(f"{value[0]}'s Regional abv Target is {value[1]} and your latest abv is currently at {abv_value[key]}.")
         if abv_value[key] < (0.1 * value[1]):
-            print("This location is severely underperforming. You need to drastically\nincrease your average booking value.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n7. 4Hair's Luxury Hair Care Kits\n")
+            print("This location is severely underperforming.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n7. 4Hair's Luxury Hair Care Kits\n")
         elif abv_value[key] < (0.3 * value[1]):
-            print("Your average booking value for this location is dangerously low and\nneeds improvement.\nTry upselling your clients with services that are in the £25-£40 range.\n")
+            print("Your average booking value for this location is dangerously low.\nTry upselling your clients with services that are in the £25-£40 range.\n")
         elif abv_value[key] < (0.5 * value[1]):
-            print("This location is more than 50% under target.\nEncourage clients to\ntrial the latest hairstyle trends that require additional work and billable hours in the chair.\n")
+            print("This location is more than 50% under target.\nEncourage clients to trial the latest hairstyle trends that are £30+.\n")
         elif abv_value[key] < (0.7 * value[1]):
-            print("This city's store is currently falling behind.\nAim to sell 4Hair's\nluxury at home hair care kits to each client to exceed targets.\n ")
+            print("This city's store is currently falling behind.\nAim to sell 4Hair's luxury hair care kits to each client to exceed targets.\n ")
         elif abv_value[key] < (0.95 * value[1]):
-            print("So close to target, but not quite there yet.\nIf the majority of\nthis store's clientele are not querying about the £40+ hair treatments/styles, please encourage them to take on these services.\n")
+            print("So close to target, but not quite there yet.\nEncourage clients to buy the hair oil serums and masks after every appointment.\n")
         elif abv_value[key] <= (0.99 * value[1]):
-            print("This store is doing really well.\nIncentivise employees with 45%\noff £50+ treatments for themselves or family, only if they exceed target next week.\n")
+            print("This store is doing really well.\nIncentivise employees with 45% off £50+ treatments for themselves or family,/only if they exceed target next week.\n")
         elif abv_value[key] > value[1]:
             print("Congratulations! This city is smashing target goals. Keep it up!\n")
         else:
-            print("This store is meeting target. However, please aim to increase\nthe store's average booking value to prevent falling behind.\n")
+            print("This store is meeting target.\nHowever, aim to increase the store's ABV to prevent falling behind.\n")
 
     return abv_value
 
