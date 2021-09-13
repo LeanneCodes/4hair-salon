@@ -146,7 +146,7 @@ def abv_reccos(data):
     }
 
     for key, value in abv_dict.items():
-        print(f"{value[0]}'s Regional abv Target is {value[1]} and your latest abv is currently at {abv_value[key]}.")
+        print(f"{value[0]}'s Regional ABV Target is {value[1]} and your latest ABV is currently at {abv_value[key]}.")
         if abv_value[key] < (0.1 * value[1]):
             print("This location is severely underperforming.\nTry offering more add-on services, such as:\n1. Trimming Services\n2. Hair/Root Colouring\n3. Highlights\n4. Balayage/Foilayage\n5. Blowout\n6. Bridal Hair\n7. 4Hair's Luxury Hair Care Kits\n")
         elif abv_value[key] < (0.3 * value[1]):
