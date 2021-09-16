@@ -206,6 +206,15 @@ If it's the other way round and there is figure for sales but 0 completed bookin
 
 For user experience purposes, it's best to run the program on a tablet, laptop or desktop, as on mobile it may be too small to read the instructions and recommendations.
 
+## Project Bugs and Solutions
+
+Bugs | Solutions
+----------|----------
+Double data upload - When the user confirmed the data they previously entered was incorrect and they confirm the new data is correct. The system would upload both sets of data (incorrect and correct) to the Google worksheets. | Move the "return sales data, booking data" from the last line in the "weekly_data_input()" function and place it on line 43 in the while loop. This meant as soon as the data was confirmed to be correct, previous data inputs were ignored.
+Integer User Error - When asking the user to confirm if their data was correct, the user had to type a number. If they typed a letter, a special character or pressed the enter key, the system would break and the user would be exited from the program. | To handle different character/key input, I removed the "int" wrapping from the "user_confirm" string on line 40 and then wrapped the numbers 1 and 2 in quotations, so the program would accept these values as answers.
+Sales Data Appearing Twice - When running the program initially, the sales data would appear on the "Sales" and "CompletedBookings" tab in the 4Hair Salon Google Workbook, despite the user inputting separate completed bookings data. | Zipped the sales and booking data on line 94.
+Module Six Error in Heroku - After updating the requirements file and then deploying to Heroku, I was still shown a "Module six Error". | After searching on StackOverflow, I found an answer that suggested adding `six == 1.10.0` to the top of the requirements.txt file. Once this was done and changes were committed, the program ran as intended on Heroku.
+
 ## Deployment
 
 <details>
