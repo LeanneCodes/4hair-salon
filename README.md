@@ -139,7 +139,7 @@ The "CompletedBookings" worksheet displays historic data inputted and the most r
 
 ### ABV Worksheet
 
-The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city. The final ABV figure is rounded down, so the data is easier to digest and understand clearly.
+The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city. The final ABV figure is can be rounded down, so the data is easier to digest and understand clearly.
 
 Additionally, the figures in each column are colour formatted based on whether they meet the city's target or not. The city's target is labelled in the column header. If the figure is below the city's target, it's highlighted in a pale orange, if it's meeting or above the city's target, then no highlighting is applied.
 
