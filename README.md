@@ -80,15 +80,18 @@ The system now tells the user what the current target is for each city, what the
 
 Recommendations are based on how far away the city's salon is away from their own target.
 
+<details>
+ <summary>7 Recommendation Print Statements</summary>
+
 If the city is more 90% away from target, they will receive this message: 
 "This location is severely underperforming. Try offering more add-on services, such as:
-1. Trimming Services
-2. Hair/Root Colouring
-3. Highlights
-4. Balayage/Foilayage
-5. Blowout
-6. Bridal Hair
-7. 4Hair's Luxury Hair Care Kits"
+ 1. Trimming Services
+ 2. Hair/Root Colouring
+ 3. Highlights
+ 4. Balayage/Foilayage
+ 5. Blowout
+ 6. Bridal Hair
+ 7. 4Hair's Luxury Hair Care Kits"
 
 If the city is more 70% away from target, they will receive this message: 
 "Your average booking value for this location is dangerously low. Try upselling your clients with services that are in the £25-£40 range."
@@ -110,6 +113,7 @@ If the city is meeting target, they will receive this message:
 
 And if the city is exceeding target, they will receive this message:
 "Congratulations! This city is smashing target goals. Keep it up!"
+</details>
 
 ### Reviewing 4Hair Salon Google Workbook
 
@@ -152,6 +156,9 @@ This allows the NDoS and other users to see which salons are consistently underp
 
 To ensure there were no bugs in the interface and that the system could handle incorrect user input. Many tests were conducted to cover all bases.
 
+<details>
+ <summary>View tests conducted</summary>
+
 ### Ensuring Data is Valid
 
 To ensure the workbook is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week is zero.
@@ -189,10 +196,11 @@ However, if the data is correct, they can type in 1 and the system will proceed 
 Additionally, if the the user enters the value "0" for sales and has bookings for that city, this could be due bookings/appointments that were 100% discounted. This happens when a salon is treating a celebrity or an influencer and wants to generate positive PR.
 
 If it's the other way round and there is figure for sales but 0 completed bookings, this could be due to clients buying merchandise from the salon without having an appointment/confirmed booking. For example, buying the 4Hair Luxury Kits.
+</details>
 
 ## Validator Testing
 
-- Passed data through PEP8 and no warnings were found
+- Passed data through PEP8 and no errors were found
 - Heroku works correctly as planned across Google Chrome, Safari, Microsoft Edge and Mozilla Firefox
 - Tested the Heroku program on iPhone 11, Google Pixel 2, Motorola Edge and Huawei P9
 
@@ -200,14 +208,46 @@ For user experience purposes, it's best to run the program on a tablet, laptop o
 
 ## Deployment
 
-GitHub Deployment
-*	The website was deployed to GitHub. The steps to deploy are as follows:
-*	In the GitHub repository, navigate to the Settings tab
-*	Scroll down to GitHub pages and click "Check it out here!"
-*	Under "Source" ensure you select "main"
-*	Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+<details>
+ <summary>GitHub Deployment Steps</summary>
+ 
+1. In the GitHub repository, navigate to the Settings tab
+2. Scroll down to GitHub pages and click "Check it out here!"
+3. Under "Source" ensure you select "main"
+4. Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+</details>
+ 
+<details>
+ <summary>Heroku Deployment Steps</summary>
+ 
+  1. Make sure all dependencies are listed in your requirements.txt file. To do this, type in your python terminal `pip3 freeze > requirements.txt`.
+  2. Now all your requirements will be added to the requirements file.
+  3. To prevent any problems with your Heroku program displaying correctly, add `six == 1.10.0` to the top of the requirements file.
+  4. Commit this change.
+  5. Go to the [Heroku](https://heroku.com/) website and navigate to the sign up button in the top right-hand corner.
+  6. Next, click "New" in the top right-hand corner and select "Create new app".
+  7. Then choose an app name. It must be unique.
+  8. Then select "Europe" as your region.
+  9. Click "Create app".
+  10. Navigate to the "Settings" tab.
+  11. Click on "Config Vars".
+  12. For the first "KEY", input "CREDS".
+  13. For "VALUE", input your entire cred.json file including the curly braces.
+  14. Click "Add".
+  15. For the second "KEY", input "PORT".
+  16. For the second "PORT", input "8000".
+  17. Click "Add".
+  18. Scroll down to Buildpacks and select "Add buildpack".
+  19. Select Python first and then add another buildpack and select Node JS. Python must be listed above Node JS for this to work.
+  20. Scroll back to the top and select the "Deploy" tab.
+  21. From Deployment method, select "GitHub".
+  22. Now search for your GitHub repository name and select the correct repository.
+  23. Now scroll down to Automatic deploys and choose the "main" branch. Therefore, any changes that have been pushed through to GitHub will update the Heroku app.
+  24. Then scroll down to Manual deploy and click "Deploy Branch".
+  25. When complete, click on "View", which will open a new tab and display your program.
+</details>
 
-Heroku Deployment
+Please note: Heroku is used to handle back-end languages such as Python. Hence why we need to deploy this work to Heroku in order to help manage and scale this app if need be.
 
 ## Technologies Used
 
