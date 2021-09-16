@@ -273,15 +273,6 @@ To check that your `creds.json` file won't be committed, follow the below steps:
 ## Deployment
 
 <details>
- <summary>GitHub Deployment Steps</summary>
- 
-  1. In the GitHub repository, navigate to the Settings tab
-  2. Scroll down to GitHub pages and click "Check it out here!"
-  3. Under "Source" ensure you select "main"
-  4. Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
-</details>
- 
-<details>
  <summary>Heroku Deployment Steps</summary>
  
   1. Make sure all dependencies are listed in your requirements.txt file. To do this, type in your python terminal `pip3 freeze > requirements.txt`.
