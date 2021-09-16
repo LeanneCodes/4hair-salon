@@ -2,7 +2,7 @@
 
 <p align=center>The 4Hair Salon Performance Tracker</p>
 
-This system allows user input and displays recommendations on what each salon should do to improve their average booking value from one system. This provides visibility on each salon’s performance and be able to make top-level decisions from an objective point-of-view. 
+This system grants user input and displays recommendations on what each salon should do to improve their average booking value. This provides visibility on each salon’s performance and be able to make top-level decisions from an objective point-of-view. 
 
 ![4hair-salon-logo-and-mockup](https://user-images.githubusercontent.com/81588887/133580235-1b66edf9-ef83-4954-92dc-60f27bbf4d93.png)
 
@@ -12,29 +12,29 @@ This system allows user input and displays recommendations on what each salon sh
 
 ### User Story
 
-There are now 6 salons under the 4Hair Salon franchise. One in London, Bristol, Manchester, Birmingham, Liverpool and Nottingham. Each have their own Sales Manager monitoring the salon’s performance. 
+There are 6 salons under the 4Hair Salon franchise. One in London, Bristol, Manchester, Birmingham, Liverpool and Nottingham. Each salon has their own Sales Manager that monitors the salon’s performance, and these managers report into the National Director of Sales.
 
-A high-ranking employee with the title, National Director of Sales (NDoS) for 4Hair Salon, wants to have visibility on how each salon is performing and what they can do to improve performance. 
+The National Director of Sales (NDoS) for 4Hair Salon, wants to have visibility on how each salon is performing and what they can do to improve performance. 
 
 While the volume of sales is important, the NDoS wants to maximise the value each client brings to the salon. For example, if one client has a hair treatment that costs £20 and another that costs £50, the NDoS wants to maximise on each client spending £50 in the salon, thus increasing the booking/appointment value. 
 
-One of 4Hair Salon’s business objectives is to maximise the average booking value (ABV) for each salon, by meeting the salon’s target every week. This will not only maintain sales at a healthy level but encourage the clientele to spend more.
+One of 4Hair Salon’s business objectives is to maximise the average booking value (ABV) for each salon, by meeting the salons' target every week. This will not only maintain sales at a healthy level but encourage the clientele to spend more.
 
 Each salon has different targets, as the cost of rent and other overhead bills range in each city. Therefore, some salons will need to work harder to stay afloat and the NDoS will need some guidance on what actions each salon should take on to meet their target.
 
 ### Summary
 
-As a user, I would like to be able to -
+The NDoS would like to be able to -
 1.	Input sales for each city
 2.	Input completed bookings for each city
 3.	Check if data inputted is correct and valid
 4.	Receive recommendations based on data input
-5.	Upload data inputted into a Google Workbook
-6.	Have access to the Google Workbook
+5.	Upload data inputted into a Google Sheet
+6.	Have access to the Google Sheet
 
 ## Project Flowchart
 
-The below flowchart shows the order in which actions are taken and how it works.
+The below flowchart shows the order in which actions are taken and how the program works.
 
 ![4hair-salon-flowchart-png](https://user-images.githubusercontent.com/81588887/133585502-5ac1d964-2922-41e1-954f-39c592b5a62f.png)
 
@@ -49,7 +49,7 @@ When the user runs the system, they will be greeted with an opening message and 
 
 ### Completed Bookings Input
 
-Once the NDoS has inputted the sales figures, they will be prompted to enter the completed bookings for each city, in the same order. This is done, so the system can calculate what the average booking value is for each city.
+Once the NDoS has inputted the sales figures, they will be prompted to enter the completed bookings for each city, in the same order. This is so the system can calculate what the average booking value is for each city.
 
 ![image](https://user-images.githubusercontent.com/81588887/133588595-c8e7e54e-7f1f-48d1-87cf-6e2a1e623591.png)
 ![image](https://user-images.githubusercontent.com/81588887/133590208-16277512-13af-4150-a11a-7dfe0f2c38bd.png)
@@ -62,23 +62,23 @@ If the data is valid, the NDoS will be notified with the below image. The data w
 
 ### Confirming User Input Is Correct
 
-Although the system informs the user that the data they inputted was correct, it doesn't necessarily mean the data is correct. This point in the system gives the user a chance to check the data for the sales and completed bookings is correct before progressing. If the data is correct, the user will confirming by typing in "1". If not correct, the user will need to type "2".
+Although the system informs the user that the data they inputted was valid, it doesn't necessarily mean the data is correct. At this point, the system gives the user a chance to check the data inputted for sales and completed bookings is correct before progressing. If the data is correct, the user will confirm by typing in "1". If not correct, the user will need to type in "2".
 
 ![image](https://user-images.githubusercontent.com/81588887/133590843-289c4d0b-b81a-4372-b99b-fe457d3745ee.png)
 
 ### System Updating Relevant Google Worksheets
 
-Now that the NDoS confirmed the data is correct, the system will show statements that the calculations are happening and that each relevant Google worksheet is being updated successfully.
+Now that the NDoS confirmed the data is correct, the system will show statements that the calculations are happening in the background and that each relevant Google worksheet is being updated successfully.
 
 ![image](https://user-images.githubusercontent.com/81588887/133591140-422068db-11f5-4793-8e43-a1c7cc3bb8c7.png)
 
 ### Recommendations Based on Data Inputted
 
-The system now tells the user what the current target is for each city, what their current average booking value (ABV) is and what recommendations, if any, need to be taken to improve salon's performance. 
+The system now tells the user what the current target is for each city, the current average booking value (ABV) is and what recommendations, if any, need to be taken to improve the salons performance. 
 
 ![image](https://user-images.githubusercontent.com/81588887/133591987-b2b715ee-20fe-4e02-9ee1-10d02f5dc000.png)
 
-Recommendations are based on how far away the city's salon is away from their own target.
+Recommendations are based on how far away the salon's average booking value is away from target.
 
 <details>
  <summary>7 Recommendation Print Statements</summary>
@@ -115,15 +115,15 @@ And if the city is exceeding target, they will receive this message:
 "Congratulations! This city is smashing target goals. Keep it up!"
 </details>
 
-### Reviewing 4Hair Salon Google Workbook
+### Reviewing 4Hair Salon Google Worksheet
 
-Now the NDoS has reviewed the recommendations outputted from the system, they can review the latest data they entered and the ABV on the Google workbook via a link. Heroku doesn't allow hyperlinks, so the user is instructed to copy the link. Which they can then open the link in a new tab.
+Now the NDoS has reviewed the recommendations outputted from the system, they can review the latest data on the Google worksheet via a link. Heroku doesn't allow hyperlinks, so the user is instructed to copy the link. Which they can then open in a new tab.
 
 ![image](https://user-images.githubusercontent.com/81588887/133594840-810907da-5ccb-4887-a295-6549c1871ef0.png)
 
-## 4Hair Salon Google Workbook View
+## 4Hair Salon Google Worksheet View
 
-This workbook is read-only for users who haven't been granted permisison to edit the file. Only the NDoS and senior management have access to edit the file. This is to limit the number of accidental changes made to the workbook.
+This worksheet is read-only for users who don't have the permissions to edit the file. Only the NDoS and senior management have access to edit the file. This is to limit the number of accidental changes made to the worksheet. 
 
 ### Sales Worksheet
 
@@ -141,7 +141,7 @@ The "CompletedBookings" worksheet displays historic data inputted and the most r
 
 The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city. The final ABV figure is rounded down, so the data is easier to digest and understand clearly.
 
-Additionally, the figures in each column are formatted based on whether they meet the city's target or not. The city's target is labelled in the column header. If the figure is below the city's target, it's highlighted in a pale orange, if it's meeting or above the city's target, then no highlighting is applied.
+Additionally, the figures in each column are colour formatted based on whether they meet the city's target or not. The city's target is labelled in the column header. If the figure is below the city's target, it's highlighted in a pale orange, if it's meeting or above the city's target, then no highlighting is applied.
 
 This allows the NDoS and other users to see which salons are consistently underperforming.
 
@@ -161,7 +161,7 @@ To ensure there were no bugs in the interface and that the system could handle i
 
 ### Ensuring Data is Valid
 
-To ensure the workbook is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week is zero.
+To ensure the worksheet is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week is zero.
 
 If the user does not enter in 6 figures for either input, the below error message will flag and ask the user to try again.
 
@@ -176,7 +176,7 @@ If the user enters any data that is not a number, the system will call this out.
 
 ### Confirming Data is Correct
 
-To prevent the workflow from breaking, the system will keep asking the user to confirm the data is correct, by entering either 1 for yes or 2 for no. If the user inputs another number, letter, presses enter or any other key, the system will ask the same question until it gets a valid answer of either 1 or 2.
+To prevent the workflow from breaking, the system will keep asking the user to confirm the data is correct. This will be done by entering either 1 for yes or 2 for no. If the user inputs another number, letter, presses the enter key or any other key, the system will ask the same question until it gets a valid answer of either 1 or 2.
 
 ![image](https://user-images.githubusercontent.com/81588887/133612180-fc1d858e-5973-4a6d-befd-50b6004be80e.png)
 User inputs the value of 3
@@ -187,15 +187,15 @@ User then inputs the letter k
 ![image](https://user-images.githubusercontent.com/81588887/133612420-d96d77d0-e5a1-4eac-8897-25c74987ad93.png)
 The user presses the enter key
 
-If the user is not confident that the data they inputted is correct, they inputted the number 2 and the system starts again, ignoring the previous data inputted.
+If the user is not confident that the data they inputted is correct, they can type in the number 2 and the system will start again, ignoring the previous data inputted.
 
 ![image](https://user-images.githubusercontent.com/81588887/133612733-fe6dc000-51f2-4805-834a-4683b43dd02f.png)
 
 However, if the data is correct, they can type in 1 and the system will proceed with the remaining functions. 
 
-Additionally, if the the user enters the value "0" for sales and has bookings for that city, this could be due bookings/appointments that were 100% discounted. This happens when a salon is treating a celebrity or an influencer and wants to generate positive PR.
+Additionally, if the user enters the value "0" for sales and has bookings for that city, this could be due bookings/appointments that were 100% discounted. This happens when a salon is treating a celebrity or an influencer and wants to generate positive PR.
 
-If it's the other way round and there is figure for sales but 0 completed bookings, this could be due to clients buying merchandise from the salon without having an appointment/confirmed booking. For example, buying the 4Hair Luxury Kits.
+If it's the other way round and there is figure for sales but "0" completed bookings, this could be due to clients buying merchandise from the salon without having an appointment/confirmed booking. For example, buying the 4Hair Luxury Kits.
 </details>
 
 ## Validator Testing
@@ -210,23 +210,25 @@ For user experience purposes, it's best to run the program on a tablet, laptop o
 
 Bugs | Solutions
 ----------|----------
-Double data upload - When the user confirmed the data they previously entered was incorrect and they confirm the new data is correct. The system would upload both sets of data (incorrect and correct) to the Google worksheets. | Move the "return sales data, booking data" from the last line in the "weekly_data_input()" function and place it on line 43 in the while loop. This meant as soon as the data was confirmed to be correct, previous data inputs were ignored.
-Integer User Error - When asking the user to confirm if their data was correct, the user had to type a number. If they typed a letter, a special character or pressed the enter key, the system would break and the user would be exited from the program. | To handle different character/key input, I removed the "int" wrapping from the "user_confirm" string on line 40 and then wrapped the numbers 1 and 2 in quotations, so the program would accept these values as answers.
-Sales Data Appearing Twice - When running the program initially, the sales data would appear on the "Sales" and "CompletedBookings" tab in the 4Hair Salon Google Workbook, despite the user inputting separate completed bookings data. | Zipped the sales and booking data on line 94.
-Module Six Error in Heroku - After updating the requirements file and then deploying to Heroku, I was still shown a "Module six Error". | After searching on StackOverflow, I found an answer that suggested adding `six == 1.10.0` to the top of the requirements.txt file. Once this was done and changes were committed, the program ran as intended on Heroku.
+Double data upload - When the user confirmed the data they previously entered was incorrect, started the system again and then confirmed the new data was correct. The system would upload both sets of data (incorrect and correct) to the Google worksheets. | Moved the "return sales data, booking data" from the last line in the "weekly_data_input()" function and place it on line 43 in the while loop. This meant as soon as the data was confirmed to be correct, previous data inputs were ignored.
+Integer User Error - When asking the user to confirm if their data was correct, the user had to type a number. If they typed a letter, a special character or pressed the enter key, the system would break, and the user would be exited from the program. | To handle different character/key inputs, I removed the "int" wrapping from the "user_confirm" string on line 40 and then wrapped the numbers 1 and 2 in quotations, so the program would accept these values as answers.
+Sales Data Appearing Twice - When running the program initially, the sales data would appear on the "Sales" and "CompletedBookings" tab in the 4Hair Salon Google Worksheet, despite the user inputting separate completed bookings data. | Used the zip method for the sales and booking data on line 94.
+Module Six Error in Heroku - After updating the requirements file and then deploying to Heroku, I was still shown a "Module six error". | After searching on StackOverflow, I found an answer that suggested adding `six == 1.10.0` to the top of the requirements.txt file. Once this was done and changes were committed, the program ran as intended on Heroku.
 
 ## Google API Setup
 
-Including the Google APIs to the GitHub project allows Python to access and update the relavant worksheets.
+Including the Google APIs to the GitHub project allows Python to access and update the relevant worksheets.
+
+Link to the 4Hair Salon Google worksheet [here](https://docs.google.com/spreadsheets/d/1UmPvDmD13JLirGdsC2yTkNROgu0nCe9sanfPp3KKsbw/edit#gid=2144739599)
 
 <details>
  <summary>Setting Up the Google API</summary>
 
   1. Create a Google account.
-  2. Create a Google Sheets workbook and name the file. Preferably matching your GitHub repository name.
+  2. Create a Google Sheet and name the file. Preferably matching your GitHub repository name.
   3. Then visit [Google Cloud Platform](https://console.cloud.google.com/)
-  4. Make sure you select a person Google account. This is to prevent other users from changing settings that could impact your final program.
-  5. Next to the Google Cloud Platform burger menu, click "Select a project" button and then select "New project".
+  4. Make sure you select your personal Google account. This is to prevent other users from changing settings that could impact your final program.
+  5. Next to the Google Cloud Platform burger menu, click "Select a project" and then select "New project".
   6. Then give your project a name. Preferably matching your GitHub repository and Google Sheets doc name. Then click "Create".
   7. Then click "Select project" again. But this time select the name of the project you just created.
   8. Now you're on your project dashboard, ensure the side menu/burger menu is open and select "API & Services" and then "Library".
@@ -294,7 +296,7 @@ To check that your `creds.json` file won't be committed, follow the below steps:
   10. Navigate to the "Settings" tab.
   11. Click on "Config Vars".
   12. For the first "KEY", input "CREDS".
-  13. For "VALUE", input your entire cred.json file including the curly braces.
+  13. For "VALUE", input your entire creds.json file including the curly braces.
   14. Click "Add".
   15. For the second "KEY", input "PORT".
   16. For the second "PORT", input "8000".
@@ -321,7 +323,7 @@ Please note: Heroku is used to handle back-end languages such as Python. Hence w
 ## Credits
 
 * Code
-  * StackOverflow for the dictonary
+  * StackOverflow for the dictionary
   * W3Schools for zipping the sales and booking data
 * Acknowledgements
   * My mentor Rahul for his ongoing support and feedback
