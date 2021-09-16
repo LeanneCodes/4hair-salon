@@ -21,7 +21,7 @@ def weekly_data_input():
     before proceeding with the rest of the program.
     """
     while True:
-        print("Welcome to the 4Hair Salon Regional Sales Tracking System!\n")
+        print("Welcome to the 4Hair Salon National Sales Tracking System!\n")
         print("Please enter your weekly sales figures for each city in the order below:")
         print("London, Bristol, Manchester, Birmingham, Liverpool and Nottingham\n")
         print("Data should be 6 numbers, separated by commas")
@@ -61,7 +61,7 @@ def validate_data(value1, value2):
         [int(value) for value in value2]
         if len(value1) != 6 or len(value2) != 6:
             raise ValueError(
-                f"Exactly 6 values are required for both.\nYou provided {len(value1)} and {len(value2)}"
+                f"Exactly 6 values are required for both separated by commas.\nYou provided {len(value1)} and {len(value2)}"
             )
     except ValueError as e:
         print(f"\nInvalid data: {e}, please try again.\n")
