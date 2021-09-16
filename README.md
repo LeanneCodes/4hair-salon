@@ -111,4 +111,31 @@ If the city is meeting target, they will receive this message:
 And if the city is exceeding target, they will receive this message:
 "Congratulations! This city is smashing target goals. Keep it up!"
 
+### Reviewing 4Hair Salon Google workbook
+
+Now the NDoS has reviewed the recommendations outputted from the system, they can review the latest data they entered and the ABV on the Google workbook via a link. Heroku doesn't allow hyperlinks, so the user is instructed to copy the link. Which they can then open the link in a new tab.
+
+![image](https://user-images.githubusercontent.com/81588887/133594840-810907da-5ccb-4887-a295-6549c1871ef0.png)
+
+## 4Hair Salon Google Workbook View
+
+This workbook is read-only for users who haven't been granted permisison to edit the file. Only the NDoS and senior management have access to edit the file. This is to limit the number of accidental changes made to the workbook.
+
+### Sales Worksheet
+
+The "Sales" worksheet displays historic data inputted and the most recent data the NDoS supplied.
+
+![image](https://user-images.githubusercontent.com/81588887/133596558-4be3b54c-4053-4672-aa05-b0953d5793f6.png)
+
+### Completed Bookings Worksheet
+
+The "CompletedBookings" worksheet displays historic data inputted and the most recent data the NDoS supplied.
+
+![image](https://user-images.githubusercontent.com/81588887/133596635-1ab0fea5-b7d3-4b63-9c09-051648c32dcc.png)
+
+### ABV Worksheet
+
+The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city.
+
+![image](https://user-images.githubusercontent.com/81588887/133596705-22e6700c-f4de-42ae-a65a-fbe17e46649b.png)
 
