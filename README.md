@@ -125,17 +125,32 @@ This workbook is read-only for users who haven't been granted permisison to edit
 
 The "Sales" worksheet displays historic data inputted and the most recent data the NDoS supplied.
 
-![image](https://user-images.githubusercontent.com/81588887/133596558-4be3b54c-4053-4672-aa05-b0953d5793f6.png)
+![image](https://user-images.githubusercontent.com/81588887/133601117-5745cc2a-4880-49e8-99bc-c26016b7530f.png)
 
 ### Completed Bookings Worksheet
 
 The "CompletedBookings" worksheet displays historic data inputted and the most recent data the NDoS supplied.
 
-![image](https://user-images.githubusercontent.com/81588887/133596635-1ab0fea5-b7d3-4b63-9c09-051648c32dcc.png)
+![image](https://user-images.githubusercontent.com/81588887/133601173-5d83bc0f-e463-4929-916e-a25666c14c9e.png)
 
 ### ABV Worksheet
 
-The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city.
+The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city. The final ABV figure is rounded down, so the data is easier to digest and understand clearly.
 
-![image](https://user-images.githubusercontent.com/81588887/133596705-22e6700c-f4de-42ae-a65a-fbe17e46649b.png)
+Additionally, the figures in each column are formatted based on whether they meet the city's target or not. The city's target is labelled in the column header. If the figure is below the city's target, it's highlighted in a pale orange, if it's meeting or above the city's target, then no highlighting is applied.
 
+This allows the NDoS and other users to see which salons are consistently underperforming.
+
+![image](https://user-images.githubusercontent.com/81588887/133601525-0aae546a-8b20-40b5-bf3b-7d669509a235.png)
+
+## Future Features
+
+1. Allow the user to add a new salon and append sales and completed bookings data to it
+2. Allow the user to remove a salon from the list
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Python3
