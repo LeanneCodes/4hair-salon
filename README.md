@@ -253,12 +253,20 @@ Including the Google APIs to the GitHub project allows Python to access and upda
 <details>
  <summary>Link your Google API Credentials to Gitpod Workspace</summary>
  
- 1. Drag and drop the .json file from your downloads folder into your Gitpod workspace.
- 2. Rename the file to "creds.json"
- 3. Now open the creds.json file. Locate the "client_email" line and copy the email address next to it, without the quotes.
- 4. Then navigate to your Google Sheets file and open the "Share" button.
- 5. Paste in the client email address and make sure "Editor" is selected, untick "Notify People" and then click "Share".
+  1. Drag and drop the .json file from your downloads folder into your Gitpod workspace.
+  2. Rename the file to "creds.json"
+  3. Now open the creds.json file. Locate the "client_email" line and copy the email address next to it, without the quotes.
+  4. Then navigate to your Google Sheets file and open the "Share" button.
+  5. Paste in the client email address and make sure "Editor" is selected, untick "Notify People" and then click "Share".
 </details> 
+
+Given that your `creds.json` file contains sensitive information. Make sure to add this file to your gitignore file, to prevent this data being committed or sent to GitHub.
+
+To check that your `creds.json` file won't be committed, follow the below steps:
+
+  1. In your terminal type `git add .` and press enter.
+  2. Now type in `git status` and press enter.
+  3. If the `creds.json` file is not listed in the staging area, you are safe to commit your changes.
 
 ## Deployment
 
