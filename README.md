@@ -152,9 +152,51 @@ This allows the NDoS and other users to see which salons are consistently underp
 
 To ensure there were no bugs in the interface and that the system could handle incorrect user input. Many tests were conducted to cover all bases.
 
+### Ensuring Data is Valid
+
+To ensure the workbook is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week is zero.
+
+If the user does not enter in 6 figures for either input, the below error message will flag and ask the user to try again.
+
+![image](https://user-images.githubusercontent.com/81588887/133613385-25ab149d-e8f8-42a3-bf7d-46534b6d8ecf.png)
+
+If the user enters any data that is not a number, the system will call this out.
+
+![image](https://user-images.githubusercontent.com/81588887/133613655-14131e87-8049-4145-82f9-07b3b8bdd358.png) User enters "cat" in the sales input
+![image](https://user-images.githubusercontent.com/81588887/133613721-1bc102a4-6395-4d45-a650-8949de2973e4.png) User enters "dog" in the booking input
+![image](https://user-images.githubusercontent.com/81588887/133613918-cc4fef71-7ce1-42bc-a5c7-ab325a6b7cdf.png) User presses the enter key in the sales input
+![image](https://user-images.githubusercontent.com/81588887/133614776-969953ae-26ee-4f46-9b76-c20d5e43abd3.png) The user does not use commas when inputting data
+
 ### Confirming Data is Correct
 
+To prevent the workflow from breaking, the system will keep asking the user to confirm the data is correct, by entering either 1 for yes or 2 for no. If the user inputs another number, letter, presses enter or any other key, the system will ask the same question until it gets a valid answer of either 1 or 2.
 
+![image](https://user-images.githubusercontent.com/81588887/133612180-fc1d858e-5973-4a6d-befd-50b6004be80e.png)
+User inputs the value of 3
+
+![image](https://user-images.githubusercontent.com/81588887/133612268-c46f6660-24a5-460f-80ec-4393cb954140.png)
+User then inputs the letter k
+
+![image](https://user-images.githubusercontent.com/81588887/133612420-d96d77d0-e5a1-4eac-8897-25c74987ad93.png)
+The user presses the enter key
+
+If the user is not confident that the data they inputted is correct, they inputted the number 2 and the system starts again, ignoring the previous data inputted.
+
+![image](https://user-images.githubusercontent.com/81588887/133612733-fe6dc000-51f2-4805-834a-4683b43dd02f.png)
+
+However, if the data is correct, they can type in 1 and the system will proceed with the remaining functions. 
+
+Additionally, if the the user enters the value "0" for sales and has bookings for that city, this could be due bookings/appointments that were 100% discounted. This happens when a salon is treating a celebrity or an influencer and wants to generate positive PR.
+
+If it's the other way round and there is figure for sales but 0 completed bookings, this could be due to clients buying merchandise from the salon without having an appointment/confirmed booking. For example, buying the 4Hair Luxury Kits.
+
+## Validator Testing
+
+- Passed data through PEP8 and no warnings were found
+- Heroku works correctly as planned across Google Chrome, Safari, Microsoft Edge and Mozilla Firefox
+- Tested the Heroku program on iPhone 11, Google Pixel 2, Motorola Edge and Huawei P9
+
+For user experience purposes, it's best to run the program on a tablet, laptop or desktop, as on mobile it may be too small to read the instructions and recommendations.
 
 ## Technologies Used
 
