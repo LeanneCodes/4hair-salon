@@ -164,7 +164,7 @@ def abv_reccos(data):
         else:
             print("This salon is meeting target.\nHowever, aim to increase the salon's ABV to prevent falling behind.\n")
 
-    print("To get access to the 4Hair Salon Google workbook, please copy this link here:\nhttps://bit.ly/4hair-salon")
+    print("To get access to the 4Hair Salon Google workbook, please copy this link here:\nhttps://bit.ly/4hair-salon\n")
 
     return abv_value
 

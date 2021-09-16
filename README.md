@@ -40,39 +40,39 @@ The below flowchart shows the order in which actions are taken and how it works.
 
 ## Features
 
-### Introductory message and sales input
+### Introductory Message and Sales Input
 
 When the user runs the system, they will be greeted with an opening message and their first set of instructions. The NDoS will need to enter in the salons' sales figures for each city in a specific order, which need to be separated by a comma. No need for spaces or pound signs. An example of how the data should be entered is given.
 
 ![image](https://user-images.githubusercontent.com/81588887/133588088-c4962ecf-1f3e-4150-9cb7-08fa89ac4447.png)
 ![image](https://user-images.githubusercontent.com/81588887/133590157-1530b987-3ab4-4d08-8338-e0fb233d39fc.png)
 
-### Completed bookings input
+### Completed Bookings Input
 
 Once the NDoS has inputted the sales figures, they will be prompted to enter the completed bookings for each city, in the same order. This is done, so the system can calculate what the average booking value is for each city.
 
 ![image](https://user-images.githubusercontent.com/81588887/133588595-c8e7e54e-7f1f-48d1-87cf-6e2a1e623591.png)
 ![image](https://user-images.githubusercontent.com/81588887/133590208-16277512-13af-4150-a11a-7dfe0f2c38bd.png)
 
-### Data valid
+### Data Validation
 
 If the data is valid, the NDoS will be notified with the below image. The data will only be classified as valid, if both the sales and completed booking inputs are 6 figures each, separated by commas.
 
 ![image](https://user-images.githubusercontent.com/81588887/133589477-57f68ea0-4d6c-4150-800d-6d5abff0ccf1.png)
 
-### Confirming user input is correct
+### Confirming User Input Is Correct
 
 Although the system informs the user that the data they inputted was correct, it doesn't necessarily mean the data is correct. This point in the system gives the user a chance to check the data for the sales and completed bookings is correct before progressing. If the data is correct, the user will confirming by typing in "1". If not correct, the user will need to type "2".
 
 ![image](https://user-images.githubusercontent.com/81588887/133590843-289c4d0b-b81a-4372-b99b-fe457d3745ee.png)
 
-### System updating relevant Google worksheets
+### System Updating Relevant Google Worksheets
 
 Now that the NDoS confirmed the data is correct, the system will show statements that the calculations are happening and that each relevant Google worksheet is being updated successfully.
 
 ![image](https://user-images.githubusercontent.com/81588887/133591140-422068db-11f5-4793-8e43-a1c7cc3bb8c7.png)
 
-### Recommendations based on data inputted
+### Recommendations Based on Data Inputted
 
 The system now tells the user what the current target is for each city, what their current average booking value (ABV) is and what recommendations, if any, need to be taken to improve salon's performance. 
 
@@ -111,7 +111,7 @@ If the city is meeting target, they will receive this message:
 And if the city is exceeding target, they will receive this message:
 "Congratulations! This city is smashing target goals. Keep it up!"
 
-### Reviewing 4Hair Salon Google workbook
+### Reviewing 4Hair Salon Google Workbook
 
 Now the NDoS has reviewed the recommendations outputted from the system, they can review the latest data they entered and the ABV on the Google workbook via a link. Heroku doesn't allow hyperlinks, so the user is instructed to copy the link. Which they can then open the link in a new tab.
 
@@ -147,6 +147,14 @@ This allows the NDoS and other users to see which salons are consistently underp
 
 1. Allow the user to add a new salon and append sales and completed bookings data to it
 2. Allow the user to remove a salon from the list
+
+## Testing
+
+To ensure there were no bugs in the interface and that the system could handle incorrect user input. Many tests were conducted to cover all bases.
+
+### Confirming Data is Correct
+
+
 
 ## Technologies Used
 
