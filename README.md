@@ -215,15 +215,60 @@ Integer User Error - When asking the user to confirm if their data was correct, 
 Sales Data Appearing Twice - When running the program initially, the sales data would appear on the "Sales" and "CompletedBookings" tab in the 4Hair Salon Google Workbook, despite the user inputting separate completed bookings data. | Zipped the sales and booking data on line 94.
 Module Six Error in Heroku - After updating the requirements file and then deploying to Heroku, I was still shown a "Module six Error". | After searching on StackOverflow, I found an answer that suggested adding `six == 1.10.0` to the top of the requirements.txt file. Once this was done and changes were committed, the program ran as intended on Heroku.
 
+## Google API Setup
+
+Including the Google APIs to the GitHub project allows Python to access and update the relavant worksheets.
+
+<details>
+ <summary>Setting Up the Google API</summary>
+
+  1. Create a Google account.
+  2. Create a Google Sheets workbook and name the file. Preferably matching your GitHub repository name.
+  3. Then visit [Google Cloud Platform](https://console.cloud.google.com/)
+  4. Make sure you select a person Google account. This is to prevent other users from changing settings that could impact your final program.
+  5. Next to the Google Cloud Platform burger menu, click "Select a project" button and then select "New project".
+  6. Then give your project a name. Preferably matching your GitHub repository and Google Sheets doc name. Then click "Create".
+  7. Then click "Select project" again. But this time select the name of the project you just created.
+  8. Now you're on your project dashboard, ensure the side menu/burger menu is open and select "API & Services" and then "Library".
+  9. First search for "Google Drive" in the search bar. Click on the API at the top and click "Enable".
+  10. Now you will need to create credentials to access the Google Sheets. Click "Create credentials".
+  11. In the form, under "Which API are you using?", please select "Google Drive API".
+  12. For "What data will you be accessing?", please select "Application Data".
+  13. For the "Are you planning to use this API with Compute Engine, Kubernetes Engine, App Engine, or Cloud Functions?" question, please select "No, I'm not using them".
+  14. Click "Next", then "Done".
+  15. Now enter a Service account name. Preferably matching your Google Cloud project name if available.
+  16. Then go to "Grant this service account access to project".
+  17. In the Role dropdown box, select "Basic", then "Editor".
+  18. Press "Continue".
+  19. "Grant users access to this service `account`" can be left blank.
+  20. Click "Done".
+  21. On the next page, click on the service account that has just been created.
+  22. Now click on the "Keys" tab.
+  23. Click the "Add Key" dropdown button and select "Create New Key".
+  24. Select "JSON" and then click "Create". This will trigger the .json file with your API credentials in it to download to your machine.
+  25. Now, click on the main burger menu, select "API & Services" and select "Library".
+  26. In the search bar, enter "Google Sheets" and select the "Google Sheets API" option and click "Enable".
+</details>
+
+<details>
+ <summary>Link your Google API Credentials to Gitpod Workspace</summary>
+ 
+ 1. Drag and drop the .json file from your downloads folder into your Gitpod workspace.
+ 2. Rename the file to "creds.json"
+ 3. Now open the creds.json file. Locate the "client_email" line and copy the email address next to it, without the quotes.
+ 4. Then navigate to your Google Sheets file and open the "Share" button.
+ 5. Paste in the client email address and make sure "Editor" is selected, untick "Notify People" and then click "Share".
+</details> 
+
 ## Deployment
 
 <details>
  <summary>GitHub Deployment Steps</summary>
  
-1. In the GitHub repository, navigate to the Settings tab
-2. Scroll down to GitHub pages and click "Check it out here!"
-3. Under "Source" ensure you select "main"
-4. Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+  1. In the GitHub repository, navigate to the Settings tab
+  2. Scroll down to GitHub pages and click "Check it out here!"
+  3. Under "Source" ensure you select "main"
+  4. Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 </details>
  
 <details>
