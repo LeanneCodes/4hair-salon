@@ -198,9 +198,30 @@ If it's the other way round and there is figure for sales but 0 completed bookin
 
 For user experience purposes, it's best to run the program on a tablet, laptop or desktop, as on mobile it may be too small to read the instructions and recommendations.
 
+## Deployment
+
+GitHub Deployment
+*	The website was deployed to GitHub. The steps to deploy are as follows:
+*	In the GitHub repository, navigate to the Settings tab
+*	Scroll down to GitHub pages and click "Check it out here!"
+*	Under "Source" ensure you select "main"
+*	Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+Heroku Deployment
+
 ## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
 - Python3
+
+## Credits
+
+* Code
+  * StackOverflow for the dictonary
+  * W3Schools for zipping the sales and booking data
+* Acknowledgements
+  * My mentor Rahul for his ongoing support and feedback
+  * The Code Institute’s Tutor Support
+  * The Slack community
