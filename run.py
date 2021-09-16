@@ -21,7 +21,7 @@ def weekly_data_input():
     before proceeding with the rest of the program.
     """
     while True:
-        print("Welcome to the 4Hair Salon National Sales Tracking System!\n")
+        print("\nWelcome to the 4Hair Salon National Sales Tracking System!\n")
         print("Please enter your weekly sales figures for each city in the order below:")
         print("London, Bristol, Manchester, Birmingham, Liverpool and Nottingham\n")
         print("Data should be 6 numbers, separated by commas")
@@ -154,15 +154,15 @@ def abv_reccos(data):
         elif abv_value[key] < (0.5 * value[1]):
             print("This location is more than 50% under target.\nEncourage clients to trial the latest hairstyle trends that are £30+.\n")
         elif abv_value[key] < (0.7 * value[1]):
-            print("This city's store is currently falling behind.\nAim to sell 4Hair's luxury hair care kits to each client to exceed targets.\n ")
+            print("This city's salon is currently falling behind.\nAim to sell 4Hair's luxury hair care kits to each client to exceed targets.\n")
         elif abv_value[key] < (0.95 * value[1]):
             print("So close to target, but not quite there yet.\nEncourage clients to buy the hair oil serums and masks after every appointment.\n")
         elif abv_value[key] <= (0.99 * value[1]):
-            print("This store is doing really well.\nIncentivise employees with 45% off £50+ treatments for themselves or family,/only if they exceed target next week.\n")
+            print("This salon is doing really well.\nIncentivise employees with 45% off £50+ treatments for themselves or family, only if they exceed target next week.\n")
         elif abv_value[key] > value[1]:
             print("Congratulations! This city is smashing target goals. Keep it up!\n")
         else:
-            print("This store is meeting target.\nHowever, aim to increase the store's ABV to prevent falling behind.\n")
+            print("This salon is meeting target.\nHowever, aim to increase the salon's ABV to prevent falling behind.\n")
 
     print("To get access to the 4Hair Salon Google workbook, please copy this link here:\nhttps://bit.ly/4hair-salon")
 
