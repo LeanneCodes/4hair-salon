@@ -149,8 +149,8 @@ def abv_reccos(data):
     }
 
     for key, value in abv_dict.items():
-        print(f"{value[0]}'s Regional ABV Target is {value[1]} and your" +
-              " latest ABV is currently at {abv_value[key]}.")
+        print(f"{value[0]}'s Regional ABV Target is {value[1]}")
+        print(f"And your latest ABV is currently at {abv_value[key]}")
         if abv_value[key] < (0.1 * value[1]):
             print("This location is severely underperforming.\nTry" +
                   " offering more add-on services, such as:\n1. Trimming" +
