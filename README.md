@@ -161,7 +161,7 @@ To ensure there were no bugs in the interface and that the system could handle i
 
 ### Ensuring Data is Valid
 
-To ensure the worksheet is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week is zero.
+To ensure the worksheet is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week were zero.
 
 If the user does not enter in 6 figures for either input, the below error message will flag and ask the user to try again.
 
@@ -169,10 +169,14 @@ If the user does not enter in 6 figures for either input, the below error messag
 
 If the user enters any data that is not a number, the system will call this out.
 
-![image](https://user-images.githubusercontent.com/81588887/133613655-14131e87-8049-4145-82f9-07b3b8bdd358.png) User enters "cat" in the sales input
-![image](https://user-images.githubusercontent.com/81588887/133613721-1bc102a4-6395-4d45-a650-8949de2973e4.png) User enters "dog" in the booking input
-![image](https://user-images.githubusercontent.com/81588887/133613918-cc4fef71-7ce1-42bc-a5c7-ab325a6b7cdf.png) User presses the enter key in the sales input
-![image](https://user-images.githubusercontent.com/81588887/133614776-969953ae-26ee-4f46-9b76-c20d5e43abd3.png) The user does not use commas when inputting data
+![image](https://user-images.githubusercontent.com/81588887/133613655-14131e87-8049-4145-82f9-07b3b8bdd358.png) 
+ User enters "cat" in the sales input
+![image](https://user-images.githubusercontent.com/81588887/133613721-1bc102a4-6395-4d45-a650-8949de2973e4.png) 
+ User enters "dog" in the booking input
+![image](https://user-images.githubusercontent.com/81588887/133613918-cc4fef71-7ce1-42bc-a5c7-ab325a6b7cdf.png) 
+ User presses the enter key in the sales input
+![image](https://user-images.githubusercontent.com/81588887/133614776-969953ae-26ee-4f46-9b76-c20d5e43abd3.png) 
+ The user does not use commas when inputting data
 
 ### Confirming Data is Correct
 
@@ -213,7 +217,8 @@ Bugs | Solutions
 Double data upload - When the user confirmed the data they previously entered was incorrect, started the system again and then confirmed the new data was correct. The system would upload both sets of data (incorrect and correct) to the Google worksheets. | Moved the "return sales data, booking data" from the last line in the "weekly_data_input()" function and place it on line 43 in the while loop. This meant as soon as the data was confirmed to be correct, previous data inputs were ignored.
 Integer User Error - When asking the user to confirm if their data was correct, the user had to type a number. If they typed a letter, a special character or pressed the enter key, the system would break, and the user would be exited from the program. | To handle different character/key inputs, I removed the "int" wrapping from the "user_confirm" string on line 40 and then wrapped the numbers 1 and 2 in quotations, so the program would accept these values as answers.
 Sales Data Appearing Twice - When running the program initially, the sales data would appear on the "Sales" and "CompletedBookings" tab in the 4Hair Salon Google Worksheet, despite the user inputting separate completed bookings data. | Used the zip method for the sales and booking data on line 94.
-Module Six Error in Heroku - After updating the requirements file and then deploying to Heroku, I was still shown a "Module six error". | After searching on StackOverflow, I found an answer that suggested adding `six == 1.10.0` to the top of the requirements.txt file. Once this was done and changes were committed, the program ran as intended on Heroku.
+Module Six Error in Heroku - After updating the requirements file and then deploying to Heroku, I was still shown a "Module six error". | After searching on StackOverflow, I found an answer that suggested adding `six == 1.10.0` to the top of the requirements.txt file. Once this was done and changes were committed, the program ran as intended on Heroku
+Zero Division Error - When the user entered 0 for completed bookings for at least 1 city, the program would break, given that the calculation later on in the program asked for sales divided by bookings. | To handle this error, I used the following code: ![image](https://user-images.githubusercontent.com/81588887/138554667-64628b30-1daa-49d6-b9fd-fc25f9c41265.png) This allowed me to put a 0 in the Google worksheet and allow the program to continue running the code.
 
 ## Google API Setup
 
