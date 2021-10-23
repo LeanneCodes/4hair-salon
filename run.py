@@ -17,7 +17,7 @@ def weekly_data_input():
     """
     This function asks the user for the end of week sales and bookings,
     by city, in a specific order. It runs a while loop until the data
-    entered is valid and asks the user to confirm the data is correct
+    entered is valid and asks the user to confirm the data is correct,
     before proceeding with the rest of the program.
     """
     while True:
@@ -55,7 +55,7 @@ def weekly_data_input():
 def validate_data(value1, value2):
     """
     Inside the try statement, convert all string values into integers.
-    Raises ValueError if strings cannot be converted into an int,
+    Raises ValueError if strings cannot be converted into an integer,
     or if there aren't exactly 6 values.
     """
     try:
@@ -87,7 +87,9 @@ def update_worksheet(data, worksheet):
 def calculate_abv(sales_row):
     """
     Compares the sales and completed bookings for each city and
-    calculates the average booking value for each booking.
+    calculates the average booking value for each booking. If the user entered
+    zero for the booking data, the ABV worksheet will place a 0 in the
+    respective cell.
     """
     print("Calculating the average booking value for each city...\n")
     completed_bookings = SHEET.worksheet("CompletedBookings").get_all_values()
@@ -106,9 +108,7 @@ def calculate_abv(sales_row):
 
 
 def update_abv_worksheet(abv):
-    """
-    Updates the abv worksheet and appends a new row of data.
-    """
+    """ Updates the abv worksheet and appends a new row of data """
     abv_results = SHEET.worksheet("ABV").append_row(abv)
     print("Your ABV for each city has been updated successfully!\n")
 
@@ -116,9 +116,7 @@ def update_abv_worksheet(abv):
 
 
 def get_last_4_entries_abv():
-    """
-    This function looks at the last 4 average booking values per city.
-    """
+    """ This function looks at the last 4 average booking values per city """
     abv = SHEET.worksheet("ABV")
 
     columns = []
