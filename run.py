@@ -98,7 +98,6 @@ def calculate_abv(sales_row):
         if bookings in ["0", ""]:
             abv = 0
             abv_data.append(abv)
-            print("At least one city's booking entry value was 0\n")
         else:
             abv = int(sales) / int(bookings)
             abv_data.append(abv)
