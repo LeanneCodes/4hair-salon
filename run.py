@@ -26,7 +26,7 @@ def weekly_data_input():
         print("London, Bristol, Manchester, Birmingham," +
               " Liverpool and Nottingham\n")
         print("Data should be 6 numbers, separated by commas")
-        print("For example: 1000,250,3456,780,90,0\n")
+        print("For example: 1000,250,3456,780,90,88\n")
         sales_string = input("Enter your numbers here: \n")
         print("\nNow enter your completed bookings by city")
         booking_string = input("Enter your numbers here: \n")
@@ -95,8 +95,13 @@ def calculate_abv(sales_row):
 
     abv_data = []
     for sales, bookings in zip(sales_row, booking_row):
-        abv = int(sales) / int(bookings)
-        abv_data.append(abv)
+        if bookings in ["0", ""]:
+            abv = 0
+            abv_data.append(abv)
+            print("At least one city's booking entry value was 0\n")
+        else:
+            abv = int(sales) / int(bookings)
+            abv_data.append(abv)
 
     return abv_data
 
