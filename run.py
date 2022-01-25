@@ -28,7 +28,7 @@ def weekly_data_input():
         print("Data should be 6 numbers, separated by commas")
         print("For example: 1000,250,3456,780,90,88\n")
         sales_string = input("Enter your numbers here: \n")
-        print("\nNow enter your completed bookings by city")
+        print("\nNow enter the number of completed bookings by city")
         booking_string = input("Enter your numbers here: \n")
 
         sales_data = sales_string.split(",")
@@ -38,8 +38,7 @@ def weekly_data_input():
             print("\nData is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
-                user_confirm = (input("(1)Yes or (2)No." +
-                                      " Type the number of your response: \n"))
+                user_confirm = (input(" Type 1 for Yes or 2 for No. \n"))
                 if user_confirm == "1":
                     print("\nThe system will proceed...\n")
                     return sales_data, booking_data
@@ -48,7 +47,8 @@ def weekly_data_input():
                     main()
                     break
                 else:
-                    print("\nInvalid choice. Options are 1 or 2 only.\n")
+                    print("\nInvalid choice. Options are 1 or 2 only.\n" +
+                          "To quit the booking system, hold CTRL + C")
             break
 
 
@@ -67,7 +67,11 @@ def validate_data(value1, value2):
                 f"\nYou provided {len(value1)} and {len(value2)}"
             )
     except ValueError as e:
-        print(f"\nInvalid data: {e}, please try again.\n")
+        print("\nInvalid data input. Only numbers are allowed and they" +
+              " must be six figures separated by commas. If a salon" +
+              " had no bookings, and/or no sales, please type 0 for that" +
+              " city. Please try again.\n" +
+              "To quit the booking system, hold CTRL + C")
         return False
 
     return True
