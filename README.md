@@ -64,7 +64,7 @@ If the data is valid, the NDoS will be notified with the below image. The data w
 
 Although the system informs the user that the data they inputted was valid, it doesn't necessarily mean the data is correct. At this point, the system gives the user a chance to check the data inputted for sales and completed bookings is correct before progressing. If the data is correct, the user will confirm by typing in "1". If not correct, the user will need to type in "2".
 
-![image](https://user-images.githubusercontent.com/81588887/133590843-289c4d0b-b81a-4372-b99b-fe457d3745ee.png)
+<img width="434" alt="data-is-valid" src="https://user-images.githubusercontent.com/81588887/151193697-f760744b-24ee-4821-85b9-180b0504a37a.png">
 
 ### System Updating Relevant Google Worksheets
 
@@ -139,7 +139,7 @@ The "CompletedBookings" worksheet displays historic data inputted and the most r
 
 ### ABV Worksheet
 
-The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city. The final ABV figure is can be rounded down, so the data is easier to digest and understand clearly.
+The "ABV" worksheet displays the calculation between the total sales for each city divided by the number of completed bookings for each city. The final ABV figure is rounded down, so the data is easier to digest and understood clearly.
 
 Additionally, the figures in each column are colour formatted based on whether they meet the city's target or not. The city's target is labelled in the column header. If the figure is below the city's target, it's highlighted in a pale orange, if it's meeting or above the city's target, then no highlighting is applied.
 
@@ -164,36 +164,36 @@ To ensure there were no bugs in the interface and that the system could handle i
 To ensure the worksheet is updated with right number of figures, it is requested that the user inputs 6 figures for both sales and completed bookings. Even if the sales for that week were zero.
 
 If the user does not enter in 6 figures for either input, the below error message will flag and ask the user to try again.
+![invalid-data](https://user-images.githubusercontent.com/81588887/151200287-2a0e68a3-e37d-42cc-9cd0-d800a4e9c6cc.png)
 
-![image](https://user-images.githubusercontent.com/81588887/133613385-25ab149d-e8f8-42a3-bf7d-46534b6d8ecf.png)
-
-If the user enters any data that is not a number, the system will call this out.
-
-![image](https://user-images.githubusercontent.com/81588887/133613655-14131e87-8049-4145-82f9-07b3b8bdd358.png) 
- User enters "cat" in the sales input
-![image](https://user-images.githubusercontent.com/81588887/133613721-1bc102a4-6395-4d45-a650-8949de2973e4.png) 
- User enters "dog" in the booking input
-![image](https://user-images.githubusercontent.com/81588887/133613918-cc4fef71-7ce1-42bc-a5c7-ab325a6b7cdf.png) 
- User presses the enter key in the sales input
-![image](https://user-images.githubusercontent.com/81588887/133614776-969953ae-26ee-4f46-9b76-c20d5e43abd3.png) 
- The user does not use commas when inputting data
+If the user enters any data that is not 6 figures separated by a comma, this invalid message will appear.
+ 
+This was tested on the following inputs
+ * NDoS inputs a word, instead of a number (cat)
+ ![word](https://user-images.githubusercontent.com/81588887/151200340-a6efc626-fbe9-4028-a83c-165464d6fc5d.png)
+ * NDoS inputs a keyboard key (?)
+ ![character-key](https://user-images.githubusercontent.com/81588887/151200377-51ad1e4e-b4f3-4fc9-a3c0-351a2e2eba0b.png)
+ * NDoS presses the enter key
+ ![enter](https://user-images.githubusercontent.com/81588887/151200415-cfca2dcc-4c21-4ab0-abbc-c4264be73e90.png)
+ * NDoS does not use commas when inputting data
+ ![commas](https://user-images.githubusercontent.com/81588887/151200547-bff2619e-de43-4231-888f-3b93bc8dc965.png)
 
 ### Confirming Data is Correct
 
 To prevent the workflow from breaking, the system will keep asking the user to confirm the data is correct. This will be done by entering either 1 for yes or 2 for no. If the user inputs another number, letter, presses the enter key or any other key, the system will ask the same question until it gets a valid answer of either 1 or 2.
 
-![image](https://user-images.githubusercontent.com/81588887/133612180-fc1d858e-5973-4a6d-befd-50b6004be80e.png)
-User inputs the value of 3
-
-![image](https://user-images.githubusercontent.com/81588887/133612268-c46f6660-24a5-460f-80ec-4393cb954140.png)
-User then inputs the letter k
-
-![image](https://user-images.githubusercontent.com/81588887/133612420-d96d77d0-e5a1-4eac-8897-25c74987ad93.png)
-The user presses the enter key
+* NDoS inputs a number (3)
+ ![three](https://user-images.githubusercontent.com/81588887/151201844-44121be8-2f27-455a-89cb-2fcecd965e6c.png)
+* NDoS inputs a letter (k)
+ ![k](https://user-images.githubusercontent.com/81588887/151201929-dfb189e9-83d3-4e0e-bb9a-2de7ce667c2a.png)
+* NDoS presses the enter hey
+ ![enter-key](https://user-images.githubusercontent.com/81588887/151201952-734fbc05-0447-4189-8ee8-81cf231ec8c8.png)
+* NDoS presses a keyboard key (?)
+ ![?](https://user-images.githubusercontent.com/81588887/151201975-00e5f918-cfe6-4c90-8a84-38d2fb72167a.png)
 
 If the user is not confident that the data they inputted is correct, they can type in the number 2 and the system will start again, ignoring the previous data inputted.
 
-![image](https://user-images.githubusercontent.com/81588887/133612733-fe6dc000-51f2-4805-834a-4683b43dd02f.png)
+![start-again](https://user-images.githubusercontent.com/81588887/151202024-65e06451-dd83-405b-9b35-35c4fcc168ef.png)
 
 However, if the data is correct, they can type in 1 and the system will proceed with the remaining functions. 
 
