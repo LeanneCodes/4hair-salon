@@ -38,7 +38,7 @@ def weekly_data_input():
             print("\nData is valid!\n")
             print("Please confirm the data you entered is correct?")
             while True:
-                user_confirm = (input(" Type 1 for Yes or 2 for No. \n"))
+                user_confirm = (input("Type 1 for Yes or 2 for No. \n"))
                 if user_confirm == "1":
                     print("\nThe system will proceed...\n")
                     return sales_data, booking_data

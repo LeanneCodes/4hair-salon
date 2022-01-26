@@ -222,7 +222,9 @@ Zero Division Error - When the user entered 0 for completed bookings for at leas
 
 ## Google API Setup
 
-Including the Google APIs to the GitHub project allows Python to access and update the relevant worksheets.
+The value of using the Google API Sheets library is that it's built on HTTP and JSON, so any standard HTTP client can send requests to it and parse the responses. In other words, our project can feed data to the Google Sheet using an API and we can see the result of that data in a format suitable for Google Sheets. It's also not just used for Python, the Google API client libraies provide better language integration, improved security and support for making calls that require user authorisation. The client libraries are available in a number of programming languages. To get set up with a Google Sheet's API, you will need to select which language your project is for and then following the installation steps online.
+
+The reason for using Google Sheets for this project is so that the NDoS and other permitted users could view past and current data inputted and be able to make insightful, data-driven decisions on what actions they should take for each salon. Using Google Sheets, meant that we could leverage formulas and highlight cells that were not equal to or greater than the city's target ABV. This added ability allows for instant clarity on what city is performing well or not, which the python program alone is not the best way to display such data. Using Google Sheets also allows the NDoS to share the file to the Regional Managers, in a read-only format, so they can understand how their salon is performing against other salons.
 
 Link to the 4Hair Salon Google worksheet [here](https://docs.google.com/spreadsheets/d/1UmPvDmD13JLirGdsC2yTkNROgu0nCe9sanfPp3KKsbw/edit#gid=2144739599)
 
