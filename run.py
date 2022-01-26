@@ -47,8 +47,7 @@ def weekly_data_input():
                     main()
                     break
                 else:
-                    print("\nInvalid choice. Options are 1 or 2 only.\n" +
-                          "To quit the booking system, hold CTRL + C")
+                    print("\nInvalid choice. Options are 1 or 2 only.\n")
             break
 
 
@@ -70,8 +69,7 @@ def validate_data(value1, value2):
         print("\nInvalid data input. Only numbers are allowed and they" +
               " must be six figures separated by commas. If a salon" +
               " had no bookings, and/or no sales, please type 0 for that" +
-              " city. Please try again.\n" +
-              "To quit the booking system, hold CTRL + C")
+              " city. Please try again.\n")
         return False
 
     return True
